@@ -17,6 +17,7 @@ const settings = ["Profile", "Dashboard", "Logout"];
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [isLogin, setIsLogin] = React.useState(false);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -129,6 +130,7 @@ function Navbar() {
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
               {pages.map((page) => (
                 <Button
+                  variant="text"
                   key={page}
                   onClick={handleCloseNavMenu}
                   sx={{
@@ -141,6 +143,7 @@ function Navbar() {
                     fontWeight: 500,
                     ":hover": {
                       color: "#0460D9",
+                      backgroundColor : 'transparent'
                     },
                   }}
                 >
@@ -149,13 +152,30 @@ function Navbar() {
               ))}
             </Box>
 
-            <CustomAvatar
-              handleOpenUserMenu={handleOpenUserMenu}
-              anchorElUser={anchorElUser}
-              handleCloseUserMenu={handleCloseUserMenu}
-              settings={settings}
-            />
-
+            {isLogin ? (
+              <CustomAvatar
+                handleOpenUserMenu={handleOpenUserMenu}
+                anchorElUser={anchorElUser}
+                handleCloseUserMenu={handleCloseUserMenu}
+                settings={settings}
+              />
+            ) : (
+              <Box
+                sx={{
+                  width: "200px",
+                  display: "flex",
+                  justifyContent: "space-between",
+                }}
+              >
+                <Button
+                  variant="contained"
+                  sx={{ backgroundColor: "#0460D9", color: "white" }}
+                >
+                  Masuk
+                </Button>
+                <Button variant="outlined">Daftar</Button>
+              </Box>
+            )}
           </Box>
         </Toolbar>
       </Container>
