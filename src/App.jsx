@@ -1,10 +1,34 @@
-import { useState, React } from 'react'
+import  React  from 'react'
+import { Routes, Route} from 'react-router-dom'
+import Navbar from './components/navbar/navbar'
+import Home from './pages/home'
+import Course from './pages/course'
+import Mentor from './pages/mentor'
+import Workshop from './pages/workshop'
+import { createTheme, ThemeProvider } from '@mui/material'
+import './app.css'
+
+const theme = createTheme({
+  typography : {
+    fontFamily : ['Poppins','sans-serif'].join(','),
+    fontWeightLight : 300,
+    fontWeightRegular : 400,
+    fontWeightMedium  : 600,
+    fontWeightBold : 700
+  }
+})
 
 function App() {
    return (
-    <>
-      <h1>Skill Mastery</h1>
-    </>
+    <ThemeProvider theme={theme}>
+      <Navbar />
+      <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/course" element={<Course />} />
+      <Route path="/mentor" element={<Mentor />} />
+      <Route path="/workshop" element={<Workshop />} />
+    </Routes>
+    </ThemeProvider>
   )
 }
 
