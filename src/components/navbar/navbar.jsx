@@ -11,7 +11,7 @@ import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import CustomAvatar from "./avatar";
 import Logo from './button-logo'
-import { Routes, Route, Link } from "react-router-dom";
+import {Link } from "react-router-dom";
 
 const pages = ["course", "workshop", "mentor"];
 const settings = ["Profile", "Dashboard", "Logout"];
@@ -37,7 +37,7 @@ function Navbar() {
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: "white" }}>
+    <AppBar position="static" sx={{ backgroundColor: "white", }}>
       <Container maxWidth="xl">
         <Toolbar
           disableGutters
@@ -123,6 +123,7 @@ function Navbar() {
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
               {pages.map((page) => (
                 <Link
+                  key={page}
                   style={{
                     textDecoration: "none",
                   }}
