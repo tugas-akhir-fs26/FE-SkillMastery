@@ -10,6 +10,7 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import CustomAvatar from "./avatar";
+import Logo from './button-logo'
 import { Routes, Route, Link } from "react-router-dom";
 
 const pages = ["course", "workshop", "mentor"];
@@ -47,18 +48,9 @@ function Navbar() {
           }}
         >
           <Box sx={{ display: { xs: "none", md: "flex" }, mx: 5 }}>
-            <Typography
-              variant="h5"
-              sx={{ color: "#0460D9", fontWeight: 700, fontSize: "2em" }}
-            >
-              Skill
-            </Typography>
-            <Typography
-              variant="h5"
-              sx={{ color: "black", fontWeight: 700, fontSize: "2em" }}
-            >
-              Mastery
-            </Typography>
+            <Link style={{textDecoration: "none"}} to={'/'}>
+              <Logo />            
+            </Link>
           </Box>
 
           <Box
@@ -130,34 +122,33 @@ function Navbar() {
           >
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
               {pages.map((page) => (
-                <Button
-                  variant="text"
-                  key={page}
-                  onClick={handleCloseNavMenu}
-                  sx={{
-                    my: 2,
-                    mx: 5,
-                    color: "black",
-                    display: "block",
-                    textTransform: "capitalize",
-                    fontSize: "1.1em",
-                    fontWeight: 500,
-                    ":hover": {
-                      color: "#0460D9",
-                      backgroundColor: "transparent",
-                    },
+                <Link
+                  style={{
+                    textDecoration: "none",
                   }}
+                  to={`/${page}`}
                 >
-                  <Link
-                    style={{
-                      textDecoration: "none",
+                  <Button
+                    variant="text"
+                    key={page}
+                    onClick={handleCloseNavMenu}
+                    sx={{
+                      my: 2,
+                      mx: 5,
                       color: "black",
+                      display: "block",
+                      textTransform: "capitalize",
+                      fontSize: "1.1em",
+                      fontWeight: 500,
+                      ":hover": {
+                        color: "#0460D9",
+                        backgroundColor: "transparent",
+                      },
                     }}
-                    to={`/${page}`}
                   >
                     {page}
-                  </Link>
-                </Button>
+                  </Button>
+                </Link>
               ))}
             </Box>
 
