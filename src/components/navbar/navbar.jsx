@@ -10,8 +10,9 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import CustomAvatar from "./avatar";
+import { Routes, Route, Link } from "react-router-dom";
 
-const pages = ["course", "workshop", "jadi instruktur"];
+const pages = ["course", "workshop", "mentor"];
 const settings = ["Profile", "Dashboard", "Logout"];
 
 function Navbar() {
@@ -143,11 +144,19 @@ function Navbar() {
                     fontWeight: 500,
                     ":hover": {
                       color: "#0460D9",
-                      backgroundColor : 'transparent'
+                      backgroundColor: "transparent",
                     },
                   }}
                 >
-                  {page}
+                  <Link
+                    style={{
+                      textDecoration: "none",
+                      color: "black",
+                    }}
+                    to={`/${page}`}
+                  >
+                    {page}
+                  </Link>
                 </Button>
               ))}
             </Box>
