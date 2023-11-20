@@ -6,7 +6,12 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Typography from "@mui/material/Typography";
 
-const CustomAvatar = ({ handleOpenUserMenu, anchorElUser, handleCloseUserMenu, settings}) => {
+const CustomAvatar = ({
+  handleOpenUserMenu,
+  anchorElUser,
+  handleCloseUserMenu,
+  settings,
+}) => {
   return (
     <>
       <Tooltip title="Open settings">
