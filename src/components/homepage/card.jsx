@@ -11,9 +11,9 @@ export default function CourseCard() {
   const [value, setValue] = React.useState(5);
 
   return (
-    <Card sx={{ maxWidth: 300, border : "1px solid black"}}>
+    <Card sx={{ maxWidth: 300, border : "1px solid black",margin: "auto"}}>
       <CardMedia
-        sx={{ height: 120 }}
+        sx={{ height: 140 }}
         image="../src/assets/courses/figma.jpg"
         title="Belajar Node"
       />
@@ -34,7 +34,7 @@ export default function CourseCard() {
             textTransform: "capitalize",
             fontSize: "16px",
             fontWeight: 400,
-            marginTop: "20px",
+            marginTop: "16px",
           }}
         >
           Detail Course

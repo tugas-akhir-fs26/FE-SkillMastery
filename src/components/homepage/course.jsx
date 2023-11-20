@@ -1,17 +1,34 @@
+// @ts-nocheck
 import Box from "@mui/material/Box";
 import React from "react";
 import CourseCard from "./card";
 import { Typography } from "@mui/material";
+import Style from './course.module.css'
+import CarouselCourse from "./carousel";
+
 
 export default function CourseSection() {
+  
   return (
-    <Box sx={{ p: 2, height: "100vh", marginTop: "150px" }}>
+    <Box
+      sx={{
+        p: 2,
+        height: "100vh",
+        marginTop: "150px",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       <Box sx={{ textAlign: "center" }}>
         <div className="Header">
-          <Typography variant="h3" sx={{fontWeight:600, color:"#0460D9"}}>
+          <Typography variant="h3" sx={{ fontWeight: 600, color: "#0460D9" }}>
             Kursus
           </Typography>
-          <Typography variant="h5" sx={{fontWeight:400}}>Temukan Kursus Menarik Disini</Typography>
+          <Typography variant="h5" sx={{ fontWeight: 400 }}>
+            Temukan Kursus Menarik Disini
+          </Typography>
         </div>
       </Box>
       <Box
@@ -20,12 +37,11 @@ export default function CourseSection() {
           alignItems: "center",
           justifyContent: "center",
           marginTop: "32px",
+          width: "100%",
+          // backgroundColor : "red"
         }}
       >
-        <CourseCard />
-        <CourseCard />
-        <CourseCard />
-        <CourseCard />
+        <CarouselCourse />
       </Box>
     </Box>
   );
