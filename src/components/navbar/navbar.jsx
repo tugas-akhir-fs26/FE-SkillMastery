@@ -10,8 +10,8 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import CustomAvatar from "./avatar";
-import Logo from './button-logo'
-import {Link } from "react-router-dom";
+import Logo from "./button-logo";
+import { Link } from "react-router-dom";
 
 const pages = ["course", "workshop", "mentor"];
 const settings = ["Profile", "Dashboard", "Logout"];
@@ -37,7 +37,7 @@ function Navbar() {
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: "white", py : 1 }}>
+    <AppBar position="static" sx={{ backgroundColor: "white", py: 1 }}>
       <Container maxWidth="xl">
         <Toolbar
           disableGutters
@@ -48,8 +48,8 @@ function Navbar() {
           }}
         >
           <Box sx={{ display: { xs: "none", md: "flex" }, mx: 5 }}>
-            <Link style={{textDecoration: "none"}} to={'/'}>
-              <Logo />            
+            <Link style={{ textDecoration: "none" }} to={"/"}>
+              <Logo />
             </Link>
           </Box>
 
@@ -163,18 +163,19 @@ function Navbar() {
             ) : (
               <Box
                 sx={{
-                  width: "180px",
+                  width: "170px",
                   display: "flex",
                   justifyContent: "space-between",
+                  fontSize: "24px"
                 }}
               >
                 <Button
                   variant="contained"
-                  sx={{ backgroundColor: "#0460D9", color: "white" }}
+                  sx={{ backgroundColor: "#0460D9", color: "white", textTransform : "capitalize", fontSize: "16px", fontWeight:400 }}
                 >
                   Masuk
                 </Button>
-                <Button variant="outlined">Daftar</Button>
+                <Button variant="outlined" sx={{ textTransform : "capitalize",  fontSize: "16px", fontWeight:400}}>Daftar</Button>
               </Box>
             )}
           </Box>
