@@ -16,7 +16,7 @@ export default function Headline() {
         alignItems: "center",
         height: "100%",
         textAlign: "left",
-        p: 3
+        p: 3,
       }}
     >
       <Box sx={{ display: "flex", width: "100%" }}>
@@ -57,16 +57,21 @@ export default function Headline() {
           <SearchIcon className={`${Style.icon}`} />
           <input type="text" placeholder="Search...." />
         </div>
-          <Button variant="contained" sx={{
-            backgroundColor : "#0b5ed7",
-            fontFamily : "inherit",
-            color : "white",
-            fontSize : "20px",
-            width : "200px",
-            fontWeight : 400,
-            textTransform : "capitalize",
-            px : 2,
-          }}>Cari Course</Button>
+        <Button
+          variant="contained"
+          sx={{
+            backgroundColor: "#0b5ed7",
+            fontFamily: "inherit",
+            color: "white",
+            fontSize: "20px",
+            width: "200px",
+            fontWeight: 400,
+            textTransform: "capitalize",
+            px: 2,
+          }}
+        >
+          Cari Course
+        </Button>
       </div>
     </Box>
   );
