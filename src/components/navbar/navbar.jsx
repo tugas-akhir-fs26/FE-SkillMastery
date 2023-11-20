@@ -37,7 +37,7 @@ function Navbar() {
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: "white", }}>
+    <AppBar position="static" sx={{ backgroundColor: "white", py : 1 }}>
       <Container maxWidth="xl">
         <Toolbar
           disableGutters
@@ -139,8 +139,8 @@ function Navbar() {
                       color: "black",
                       display: "block",
                       textTransform: "capitalize",
-                      fontSize: "1.1em",
-                      fontWeight: 500,
+                      fontSize: "20px",
+                      fontWeight: 400,
                       ":hover": {
                         color: "#0460D9",
                         backgroundColor: "transparent",
@@ -163,7 +163,7 @@ function Navbar() {
             ) : (
               <Box
                 sx={{
-                  width: "200px",
+                  width: "180px",
                   display: "flex",
                   justifyContent: "space-between",
                 }}
