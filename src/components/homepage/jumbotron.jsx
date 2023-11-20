@@ -5,6 +5,7 @@ import Container from '@mui/material/Container';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Headline from './headline';
+import Banner from './banner';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -23,7 +24,7 @@ export default function BasicGrid() {
           <Headline />
         </Grid>
         <Grid item xs={6}>
-          <img src="../src/assets/BG.svg" alt="Background Image" width={600} />
+          <Banner />
         </Grid>
       </Grid>
     </Box>
