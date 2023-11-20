@@ -1,14 +1,10 @@
 // @ts-nocheck
 import Box from "@mui/material/Box";
 import React from "react";
-import CourseCard from "./card";
-import { Typography } from "@mui/material";
-import Style from './course.module.css'
+import { Typography, Button } from "@mui/material";
 import CarouselCourse from "./carousel";
 
-
 export default function CourseSection() {
-  
   return (
     <Box
       sx={{
@@ -34,14 +30,28 @@ export default function CourseSection() {
       <Box
         sx={{
           display: "flex",
+          flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          marginTop: "32px",
+          marginTop: "10px",
           width: "100%",
-          // backgroundColor : "red"
+          gap: "20px",
         }}
       >
         <CarouselCourse />
+        <Button
+          variant="contained"
+          sx={{
+            textTransform: "capitalize",
+            px: 3,
+            py: 1,
+            fontSize: "18px",
+            backgroundColor: "#0460D9",
+            fontWeight : 400,
+          }}
+        >
+          Semua Course
+        </Button>
       </Box>
     </Box>
   );
