@@ -1,13 +1,13 @@
 import React from "react"
 import Jumbotron from "../components/homepage/jumbotron"
-import CourseCard from "../components/homepage/card"
+import CourseSection from "../components/homepage/course"
 
 
 function Home(){
     return(
         <>
             <Jumbotron />
-            <CourseCard />
+            <CourseSection />
         </>
     )
 }

@@ -13,7 +13,7 @@ export default function CourseCard() {
   return (
     <Card sx={{ maxWidth: 300, border : "1px solid black"}}>
       <CardMedia
-        sx={{ height: 140 }}
+        sx={{ height: 120 }}
         image="../src/assets/courses/figma.jpg"
         title="Belajar Node"
       />
