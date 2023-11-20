@@ -16,7 +16,7 @@ export default function Headline() {
         alignItems: "center",
         height: "100%",
         textAlign: "left",
-        p: 3,
+        p: 3
       }}
     >
       <Box sx={{ display: "flex", width: "100%" }}>
