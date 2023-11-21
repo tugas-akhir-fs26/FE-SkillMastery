@@ -1,26 +1,28 @@
-import Card from "@mui/material/Card";
+// @ts-nocheck
 import Typography from "@mui/material/Typography";
 import React from "react";
+import Style from "./testiCard.module.css";
 
 export default function TestiCard() {
   return (
-    <Card sx={{ maxWidth: 300, margin: "auto", maxHeight : 400 }}>
-      <img
-        src="../src/assets/courses/figma.jpg"
-        alt="Belajar Node"
-        width={"300px"}
-      />
-      <Typography variant="h5" sx={{ fontSize: "20px", fontWeight: 600 }}>
+    <div className={`${Style.card_wrapper_testi}`}>
+      <div className={`${Style.img_wrapper}`}>
+        <div className={`${Style.circle}`}></div>
+        <img
+          src="../src/assets/testimoni/testi_2.png"
+          alt="Belajar Node"
+          width={"300px"}
+        />
+      </div>
+      <Typography variant="h5" sx={{ fontSize: "20px", fontWeight: 600, marginTop: "10px" }}>
         Dionisius Reinaldo
       </Typography>
-      <Typography
-        gutterBottom
-        variant="h5"
-        component="div"
-        sx={{  }}
-      >
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae voluptatum cumque blanditiis vel nihil perferendis expedita quam cum corporis aut eius laborum, possimus ipsa in culpa nemo animi dolor temporibus?
-      </Typography>
-    </Card>
+        <Typography gutterBottom component="div" sx={{fontSize: "18px", width : "50vw", marginTop : "20px"}}>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae
+          voluptatum cumque blanditiis vel nihil perferendis expedita quam cum
+          corporis aut eius laborum, possimus ipsa in culpa nemo animi dolor
+          temporibus?
+        </Typography>
+    </div>
   );
 }

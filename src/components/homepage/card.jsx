@@ -11,7 +11,7 @@ export default function CourseCard() {
   const [value, setValue] = React.useState(5);
 
   return (
-    <Card sx={{ maxWidth: 300, border : "1px solid black",margin: "auto"}}>
+    <Card sx={{ maxWidth: 300, border : "1px solid black",margin: "auto", marginBottom : "20px"}}>
       <CardMedia
         sx={{ height: 140 }}
         image="../src/assets/courses/figma.jpg"
