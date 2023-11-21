@@ -13,13 +13,14 @@ export default function Testimoni() {
           </Typography>
           <Typography
             variant="h5"
-            sx={{ fontWeight: 400, display: "flex", justifyContent: "center" }}
+            sx={{ fontWeight: 400, display: "flex", justifyContent: "center", fontSize : "18px" }}
           >
             Apa kata mereka pengguna
-            <Typography variant="h5" sx={{marginLeft: "5px", fontWeight: 600, color:"#0460D9"}}>
+            <Typography variant="h5" sx={{marginLeft: "5px", fontWeight: 600, color:"#0460D9", fontSize : "18px"}}>
               Skill
             </Typography>
-            <Typography variant="h5" sx={{fontWeight: 600}}>Mastery</Typography> ?
+            <Typography variant="h5" sx={{fontWeight: 600, fontSize : "18px"}}>Mastery</Typography> 
+            ?
           </Typography>
         </div>
 

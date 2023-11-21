@@ -23,7 +23,7 @@ export default function TestiCard() {
       <Typography
         gutterBottom
         component="div"
-        sx={{ fontSize: "18px", width: "50vw", marginTop: "20px" }}
+        sx={{ fontSize: "18px", width: "50vw", marginTop: "20px", textAlign : {xs: "justify", md : "center"} }}
       >
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae
         voluptatum cumque blanditiis vel nihil perferendis expedita quam cum
