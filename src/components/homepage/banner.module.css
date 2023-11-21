@@ -1,0 +1,10 @@
+.img_banner {
+    width: 550px;
+}
+
+
+@media screen and (max-width: 768px){
+    .img_banner {
+        max-width: 100%;
+    }
+  }
