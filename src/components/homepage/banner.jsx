@@ -15,7 +15,7 @@ export default function Banner() {
         textAlign: "left",
         my: 2,
         p: 2,
-        width : {xs:"200px", md : "550px"},
+        width : {xs:"300px", md : "550px"},
       }}
     >
       <img src="../src/assets/BG.svg" className={Style.img_banner} alt="Background Image"  />
