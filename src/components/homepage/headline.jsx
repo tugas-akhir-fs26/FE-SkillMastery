@@ -16,8 +16,8 @@ export default function Headline() {
         alignItems: "center",
         height: "100%",
         textAlign: "left",
-        p: 3,
-        width : {xs:"300px", md : "100%"}
+        p: 2,
+        width : {xs:"300px", md : "100%"},
       }}
     >
       <Box sx={{ display: "flex", width: "100%" }}>
@@ -46,7 +46,7 @@ export default function Headline() {
       </Box>
       <Typography
         sx={{
-          fontSize: {xs : "20px", md : "24px"},
+          fontSize: {xs : "20px", md : "24px"}
         }}
       >
         Media belajar online yang menginspirasi, menghadirkan peluang untuk

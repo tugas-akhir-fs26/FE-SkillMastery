@@ -18,14 +18,14 @@ export default function MentorSection() {
         sx={{
           display: "flex",
           flexDirection: "column",
-          width: "50vw",
+          width: {xs : "60vw", md : "50vw"},
           alignItems: "start",
           justifyContent: "center",
-          marginBottom: "100px",
+          marginBottom: "50px",
           p:3
         }}
       >
-        <Typography variant="h4" sx={{ fontSize: {xs : "20px" ,md:"32px"}, fontWeight : 600 }}>
+        <Typography variant="h4" sx={{ fontSize: {xs : "20px" ,md:"32px"}, fontWeight : 600, textAlign : {xs : "center" ,md:"left"} }}>
           Bergabung menjadi Instruktur
           {/* Render Logo SkillMastery */}
           <div className={`${Style.logo_wrapper}`}>
@@ -34,13 +34,13 @@ export default function MentorSection() {
           </div>
           dan Wujudkan Impian Pembelajaranmu!
         </Typography>
-        <Typography sx={{ fontSize: "20px", fontWeight: 400, marginTop: "10px" }}>
+        <Typography sx={{ fontSize: "20px", fontWeight: 400, marginTop: "10px", textAlign : {xs : "center" ,md:"left"} }}>
           Ayo jadi instruktur di SkillMastery dan bagikan pengetahuan serta
           keterampilanmu kepada ribuan orang yang haus akan pembelajaran!
         </Typography>
       <Button
         variant="contained"
-        sx={{ textTransform: "capitalize", fontWeight: 400, fontSize : "18px", marginTop : "20px"}}
+        sx={{ textTransform: "capitalize", fontWeight: 400, fontSize : "18px", margin : {xs: "20px auto", md : "20px 0"}}}
       >
         Daftar Sekarang
       </Button>

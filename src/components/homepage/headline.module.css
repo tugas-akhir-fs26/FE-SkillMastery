@@ -14,7 +14,7 @@ input:focus{
 }
 
 .input_bar {
-    width: 600px;
+    width: 550px;
     height: 40px;
     border: 1px solid black ;
     border-radius: 5px;
