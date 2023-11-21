@@ -17,6 +17,7 @@ export default function Headline() {
         height: "100%",
         textAlign: "left",
         p: 3,
+        width : {xs:"400px", md : "100%"}
       }}
     >
       <Box sx={{ display: "flex", width: "100%" }}>

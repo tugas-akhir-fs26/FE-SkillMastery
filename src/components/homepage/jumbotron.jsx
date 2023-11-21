@@ -20,10 +20,10 @@ export default function BasicGrid() {
     <Container maxWidth="xl">
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
-        <Grid item xs={6}>
+        <Grid item xs={3} md={6}>
           <Headline />
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={3} md={6}>
           <Banner />
         </Grid>
       </Grid>

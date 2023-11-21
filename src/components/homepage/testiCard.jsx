@@ -14,15 +14,22 @@ export default function TestiCard() {
           width={"300px"}
         />
       </div>
-      <Typography variant="h5" sx={{ fontSize: "20px", fontWeight: 600, marginTop: "10px" }}>
+      <Typography
+        variant="h5"
+        sx={{ fontSize: "20px", fontWeight: 600, marginTop: "10px" }}
+      >
         Dionisius Reinaldo
       </Typography>
-        <Typography gutterBottom component="div" sx={{fontSize: "18px", width : "50vw", marginTop : "20px"}}>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae
-          voluptatum cumque blanditiis vel nihil perferendis expedita quam cum
-          corporis aut eius laborum, possimus ipsa in culpa nemo animi dolor
-          temporibus?
-        </Typography>
+      <Typography
+        gutterBottom
+        component="div"
+        sx={{ fontSize: "18px", width: "50vw", marginTop: "20px" }}
+      >
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae
+        voluptatum cumque blanditiis vel nihil perferendis expedita quam cum
+        corporis aut eius laborum, possimus ipsa in culpa nemo animi dolor
+        temporibus?
+      </Typography>
     </div>
   );
 }

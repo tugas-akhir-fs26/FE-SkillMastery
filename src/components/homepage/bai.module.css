@@ -1,0 +1,38 @@
+.img_wrapper{
+    position: relative;
+    width: 300px;
+    margin: auto;
+}
+
+.img_wrapper img{
+    position: relative;
+    border-radius: 0px 0px 190px 190px;
+    width: 350px;
+    overflow: hidden;
+}
+
+.img_wrapper .circle{
+    width: 350px;
+    height: 350px;
+    background-color: #0460D9;
+    position: absolute;
+    top: 0;
+    border-radius: 50%;
+}
+
+.logo_wrapper{
+    margin: 0 10px;
+    display: inline-block;
+    font-weight: 600;
+}
+
+.logo{
+    font-size: 32px;
+    color: #0460D9;
+}
+.bai_ct{
+    display: flex;
+    width: 100vw;
+    height: 450px;
+    background-color: #8DC3F2;
+}
