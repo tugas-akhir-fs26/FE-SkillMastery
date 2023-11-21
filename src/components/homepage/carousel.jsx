@@ -44,7 +44,7 @@ export default function CarouselCourse() {
   return (
     <div className={`${Style.card_wrapper}`}>
       <Slider {...settings}>
-        <CourseCard/>
+        <CourseCard />
         <CourseCard />
         <CourseCard />
         <CourseCard />
