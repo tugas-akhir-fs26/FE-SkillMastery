@@ -1,6 +1,7 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import React from "react";
+import TestiCard from "./testiCard";
 
 export default function Testimoni() {
   return (
@@ -21,6 +22,8 @@ export default function Testimoni() {
             <Typography variant="h5" sx={{fontWeight: 600}}>Mastery</Typography> ?
           </Typography>
         </div>
+
+        <TestiCard />
       </Box>
     </>
   );
