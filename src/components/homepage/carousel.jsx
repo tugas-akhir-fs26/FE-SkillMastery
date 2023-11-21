@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import React from "react";
 import CourseCard from "./card";
-import Style from "./course.module.css";
+import Style from "./carousel.module.css";
 
 export default function CarouselCourse() {
   const settings = {

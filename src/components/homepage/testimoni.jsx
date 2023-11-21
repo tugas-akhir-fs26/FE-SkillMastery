@@ -2,11 +2,12 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import React from "react";
 import TestiCard from "./testiCard";
+import CarouselTesti from "./carouselTesti";
 
 export default function Testimoni() {
   return (
     <>
-      <Box sx={{ textAlign: "center" }}>
+      <Box sx={{ textAlign: "center", height: "100vh" }}>
         <div className="Header">
           <Typography variant="h3" sx={{ fontWeight: 600, color: "#0460D9" }}>
             Testimoni
@@ -23,7 +24,7 @@ export default function Testimoni() {
           </Typography>
         </div>
 
-        <TestiCard />
+        <CarouselTesti />
       </Box>
     </>
   );
