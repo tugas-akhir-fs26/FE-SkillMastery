@@ -6,7 +6,7 @@ import Style from "./bai.module.css";
 export default function MentorSection() {
   return (
     <Box
-      sx={{ display: "flex", justifyContent: "center", alignItems: "center", height : "100vh" }}
+      sx={{ display: "flex", justifyContent: "center", alignItems: "center", height : "100vh", flexDirection : {xs : "column", md : "row"} }}
     >
 
     <div className={`${Style.bai_ct}`}>
@@ -18,14 +18,14 @@ export default function MentorSection() {
         sx={{
           display: "flex",
           flexDirection: "column",
-          width: "60vw",
+          width: "50vw",
           alignItems: "start",
           justifyContent: "center",
           marginBottom: "100px",
           p:3
         }}
       >
-        <Typography variant="h5" sx={{ fontSize: "32px" }}>
+        <Typography variant="h4" sx={{ fontSize: {xs : "20px" ,md:"32px"}, fontWeight : 600 }}>
           Bergabung menjadi Instruktur
           {/* Render Logo SkillMastery */}
           <div className={`${Style.logo_wrapper}`}>
