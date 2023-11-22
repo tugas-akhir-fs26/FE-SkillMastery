@@ -4,14 +4,53 @@ function Login(){
 
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
-  const handleLogin = () =>{
-    if(email && password !== ''){
-      alert('Login Successful')
-    }
+
+  const handleDaftar = () =>{
+    alert("on Progress")
   }
+  const handleLogin = async () => {
+    if (!email || !password) {
+      console.log("Ga boleh kosong")
+      return;
+    }
+
+    // Ganti dengan URL API login Anda
+    const apiUrl = 'https://65277168917d673fd76db3d3.mockapi.io/loginuser/v1/loginapi';
+
+    try {
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // Memeriksa data yang diinput dengan data dari API
+        if (data.success) {
+          // Login berhasil
+          
+          alert('Login berhasil');
+          
+        } else {
+          // Login gagal
+          console.error('Login gagal');
+        }
+      } else {
+        // Login gagal
+        console.error('Login gagal');
+      }
+    } catch (error) {
+      console.error('Terjadi kesalahan:', error);
+    }
+  };
 
   return(
     <>
+    
       <div className=" row g-0 justify-content-center align-items-center login-container" id="full-body">
       
         <div className="col-10 row g-0 align-items-center bg-white">
@@ -30,7 +69,7 @@ function Login(){
           <div className="form-floating mb-3">
             <input type="email" className='form-control has-validation' id="email" placeholder="name@example.com" onChange={(e)=>{setEmail(e.target.value)}} required/>
             <label htmlFor="email">Email</label>
-            <div class="invalid-feedback">
+            <div className="invalid-feedback">
               Email tidak boleh kosong
             </div>
           </div>
@@ -43,8 +82,8 @@ function Login(){
               Login
             </button>
           </div>
-                  <div className="text-center mt-3">
-          Belum punya akun? <a href="">Daftar</a>
+          <div className="text-center mt-3">
+          Belum punya akun? <a href="#" onClick={handleDaftar}>Daftar</a>
         </div>
         </form>
       </div>
