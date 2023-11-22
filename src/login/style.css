@@ -3,12 +3,9 @@
     width: 100%;
 }
 
-#form-login{
-    background-color: white;
+#full-body{
+    height: 100vh;
 }
-
-@media (max-width: 600px) {
-    img {
-        display: none;
-    }
+.login-container{
+    background: rgb(212, 212, 242);
 }

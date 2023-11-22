@@ -12,18 +12,18 @@ function Login(){
 
   return(
     <>
-      <div className=" row g-0 justify-content-center align-items-center" id="body-login">
+      <div className=" row g-0 justify-content-center align-items-center login-container" id="full-body">
       
-        <div className="col-10 row g-0 align-items-center">
+        <div className="col-10 row g-0 align-items-center bg-white">
 
-          <div className="col-6 bg-primary mt-5" id="gambar-login">
+          <div className="col-6 bg-primary d-none d-md-block" id="gambar-login">
 
             <img src="https://skillindiacsc.in/wp-content/uploads/2022/06/Illustration-4.png" alt="" />
           </div>
 
         
 
-        <form action="" className="col-6 py-4 px-3" id="form-login">
+        <form action="" className="col-12 col-md-6 py-4 px-3" id="form-login">
           
           <center><h4 className="login-title">Login</h4></center>
 
