@@ -5,6 +5,7 @@ import Home from './pages/home'
 import Course from './pages/course'
 import Mentor from './pages/mentor'
 import Workshop from './pages/workshop'
+import Payment from './pages/payment'
 import { createTheme, ThemeProvider } from '@mui/material'
 import './app.css'
 
@@ -27,6 +28,7 @@ function App() {
       <Route path="/course" element={<Course />} />
       <Route path="/mentor" element={<Mentor />} />
       <Route path="/workshop" element={<Workshop />} />
+      <Route path="/payment" element={<Payment />} />
     </Routes>
     </ThemeProvider>
   )
