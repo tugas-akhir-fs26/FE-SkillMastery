@@ -1,0 +1,14 @@
+#gambar-login img{
+    height: 600px;
+    width: 100%;
+}
+
+#form-login{
+    background-color: white;
+}
+
+@media (max-width: 600px) {
+    img {
+        display: none;
+    }
+}
