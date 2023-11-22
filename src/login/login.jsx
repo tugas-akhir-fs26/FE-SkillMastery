@@ -35,11 +35,11 @@ function Login(){
             </div>
           </div>
           <div className="form-floating mb-3">
-            <input type="password" className='form-control' id="password" placeholder="password" onChange={(e) =>{setPassword(e.target.value)}} required/>
+            <input type="password" className='form-control has-validation' id="password" placeholder="password" onChange={(e) =>{setPassword(e.target.value)}} required/>
             <label htmlFor="password">Password</label>
           </div>
-          <div className="text-center" onClick={()=>{handleLogin()}}>
-            <button className="btn btn-outline-primary">
+          <div className="text-center" >
+            <button type="submit" className="btn btn-outline-primary" onClick={()=>{handleLogin()}}>
               Login
             </button>
           </div>
