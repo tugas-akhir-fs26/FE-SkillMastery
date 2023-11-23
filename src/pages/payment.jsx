@@ -6,7 +6,7 @@ import Subtotal from "../components/payment/subtotal";
 
 function Payment() {
   return (
-    <Box sx={{ p: 3, display: "flex", alignItems : "center", }}>
+    <Box sx={{ p: 3, display: "flex", alignItems : "start", gap : "18px"}}>
       <Box>
         <Typography
           variant="h5"
@@ -21,7 +21,7 @@ function Payment() {
         <CartCourse />
         <CartCourse />
       </Box>
-      <Box sx={{width : "30vw", p:2, height :"50vh"}}>
+      <Box sx={{width : "30vw", p:2, height :"50vh", marginTop : "48px"}}>
         <Subtotal />
       </Box>
     </Box>
