@@ -1,0 +1,17 @@
+.kotak{
+    border: 1px solid;
+    padding: 20px 20px 20px 20px;
+}
+
+.average-stars i{
+    color: #f5a432;
+}
+
+ul li{
+    list-style: none;
+}
+
+.right-box ul li{
+    color: #f5a432;
+
+}
