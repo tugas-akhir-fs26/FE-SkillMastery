@@ -1,0 +1,9 @@
+.img_cart{
+    width: 250px;
+}
+
+@media screen and (max-width: 768px){
+    .img_cart{
+        width: 200px;
+    }
+}
