@@ -1,11 +1,13 @@
+// @ts-nocheck
 import { Box, Button, Typography } from "@mui/material";
 import React from "react";
+import Style from "./subtotal.module.css"
 
 export default function Subtotal() {
     const payments = ["bca", "gopay", "mandiri", "ovo", "spay"]
   return (
-    <Box>
-      <Box sx={{ display: "flex", flexDirection: "column", p:2 }}>
+    <Box sx={{width : "100%", borderTop : {xs : "1px solid black", md : "none"}}}>
+      <Box sx={{ display: "flex", flexDirection: "column", p:2, marginTop : {xs : "12px", md : 0} }}>
         <Typography
           sx={{
             fontSize: "24px",
@@ -42,7 +44,7 @@ export default function Subtotal() {
         </Typography>
         <Box sx={{display : "flex", gap : "8px", marginTop : "12px"}}>
             {payments.map((payment)=> (
-                <img src={`../src/assets/payments/${payment}.png`} alt={payment} width={100} height={40} />
+                <img src={`../src/assets/payments/${payment}.png`} alt={payment} className={`${Style.img_payments}`} />
             ))}
         </Box>
       </Box>

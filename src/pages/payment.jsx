@@ -27,7 +27,7 @@ function Payment() {
           </Box>
         </Grid>
         <Grid item xs={12} md={4}>
-          <Box sx={{ width: "30vw", p: 2, height: "50vh", marginTop: "48px" }}>
+          <Box sx={{ p: 2, height: "50vh", marginTop: "48px" }}>
             {/* render subtotal */}
             <Subtotal />
           </Box>
