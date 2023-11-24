@@ -12,6 +12,8 @@ const steps = ["Deskripsi Kursus", "Upload Materi", "Publish Kursus"];
 export default function HeaderStepper() {
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
+  const [valid, setValid] = React.useState(false);
+
 
   const isStepOptional = (step) => {
     return step === 5;
@@ -55,6 +57,12 @@ export default function HeaderStepper() {
     setActiveStep(0);
   };
 
+  const handleStepValidation = (isValid) =>{
+        setValid(isValid)
+  }
+
+  
+
   return (
     <Box sx={{ width: "100%" }}>
       <Stepper activeStep={activeStep}>
@@ -90,7 +98,7 @@ export default function HeaderStepper() {
         <React.Fragment>
           {/* render step nya  */}
           <Box sx={{p:3, border : "1px solid black", marginTop : "24px"}}>
-            <StepOne />
+            <StepOne validationChange={handleStepValidation}/>
           </Box>
           <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
             <Button
@@ -108,7 +116,7 @@ export default function HeaderStepper() {
               </Button>
             )}
 
-            <Button onClick={handleNext}>
+            <Button onClick={handleNext} disabled={!valid}>
               {activeStep === steps.length - 1 ? "Finish" : "Next"}
             </Button>
           </Box>
