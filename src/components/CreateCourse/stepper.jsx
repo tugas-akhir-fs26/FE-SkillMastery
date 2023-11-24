@@ -6,6 +6,7 @@ import StepLabel from "@mui/material/StepLabel";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import StepOne from "./step_one";
+import StepTwo from "./step_two";
 
 const steps = ["Deskripsi Kursus", "Upload Materi", "Publish Kursus"];
 
@@ -13,7 +14,6 @@ export default function HeaderStepper() {
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
   const [valid, setValid] = React.useState(false);
-
 
   const isStepOptional = (step) => {
     return step === 5;
@@ -57,11 +57,9 @@ export default function HeaderStepper() {
     setActiveStep(0);
   };
 
-  const handleStepValidation = (isValid) =>{
-        setValid(isValid)
-  }
-
-  
+  const handleStepValidation = (isValid) => {
+    setValid(isValid);
+  };
 
   return (
     <Box sx={{ width: "100%" }}>
@@ -97,8 +95,16 @@ export default function HeaderStepper() {
       ) : (
         <React.Fragment>
           {/* render step nya  */}
-          <Box sx={{p:3, border : "1px solid black", marginTop : "24px"}}>
-            <StepOne validationChange={handleStepValidation}/>
+          <Box sx={{ p: 3, border: "1px solid black", marginTop: "24px" }}>
+
+            {/* render step 1 */}
+            {activeStep === 0 && (
+              <StepOne validationChange={handleStepValidation} />
+            )}
+            {/* render step 2 */}
+            {activeStep === 1 && (
+              <StepTwo validationChange={handleStepValidation} />
+            )}
           </Box>
           <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
             <Button
