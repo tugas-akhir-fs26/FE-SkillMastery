@@ -55,7 +55,7 @@ function DaftarCourse(){
                                     </span>
                                     </p>
 
-                                    <a href="#" class="btn btn-primary">Detail Class</a>
+                                    <a href="#" class="btn btn-primary">Lihat kelas</a>
                                 </div>
 
                                     
@@ -79,7 +79,7 @@ function DaftarCourse(){
                                     </span>
                                     </p>
 
-                                    <a href="#" class="btn btn-primary">Detail Class</a>
+                                    <a href="#" class="btn btn-primary">Lihat kelas</a>
                                 </div>
 
                                     
@@ -103,7 +103,7 @@ function DaftarCourse(){
                                     </span>
                                     </p>
 
-                                    <a href="#" class="btn btn-primary">Detail Class</a>
+                                    <a href="#" class="btn btn-primary">Lihat kelas</a>
                                 </div>
 
                                     
@@ -127,7 +127,7 @@ function DaftarCourse(){
                                     </span>
                                     </p>
 
-                                    <a href="#" class="btn btn-primary">Detail Class</a>
+                                    <a href="#" class="btn btn-primary">Lihat kelas</a>
                                 </div>
 
                                     
@@ -151,7 +151,7 @@ function DaftarCourse(){
                                     </span>
                                     </p>
 
-                                    <a href="#" class="btn btn-primary">Detail Class</a>
+                                    <a href="#" class="btn btn-primary">Lihat kelas</a>
                                 </div>
                             </div>
                         </div>                      
@@ -172,7 +172,7 @@ function DaftarCourse(){
                                     </span>
                                     </p>
 
-                                    <a href="#" class="btn btn-primary">Detail Class</a>
+                                    <a href="#" class="btn btn-primary">Lihat kelas</a>
                                 </div>        
                             </div>
                         </div>                                                              
@@ -193,7 +193,7 @@ function DaftarCourse(){
                                     </span>
                                     </p>
 
-                                    <a href="#" class="btn btn-primary">Detail Class</a>
+                                    <a href="#" class="btn btn-primary">Lihat kelas</a>
                                 </div>
 
                                     
@@ -207,10 +207,10 @@ function DaftarCourse(){
 
             {/* section testimoni */}
 
-            <div className="container mt-5 mb-5">
+            <div className="container mt-5 mb-5 faq">
                 <center> <h1 >FAQ</h1>
                     <p>Apa kata mereka tentang SkillMastery?</p></center>
-                    <div className="row gy-3 mt-2 justify-content-evenly">
+                    <div className="row gy-3 mt-2 justify-content-center ">
                         
                         <div className="col-sm-6 col-md-4 col-lg-3 ">
 
@@ -245,8 +245,8 @@ function DaftarCourse(){
                             <div class="card testi" >
                                 <img src="https://i.pinimg.com/564x/7d/c3/0b/7dc30bfe7d1ca4234aaf4ab8d45666e9.jpg" class="card-img-top" alt="img-course.jpg" />
                                 <div class="card-body">
-                                    <h5 class="card-title text-center">Muhammad Haikal Syahfarel</h5>
-                                    <p className="text-center mentor">- Pekerja -</p>
+                                    <h5 class="card-title ">Muhammad Haikal Syahfarel</h5>
+                                    <p className=" mentor">- Pekerja -</p>
                                     <p>{/* Nama pembuat */} <br />
                                     <p>"Kelas website ini sungguh luar biasa! Materi yang disampaikan sangat jelas dan mudah dipahami. Saya benar-benar merasa meningkatkan keterampilan saya dalam membuat dan mengelola website. Terima kasih!"</p>
                                         <span class="card-text">
