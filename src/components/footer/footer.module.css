@@ -1,5 +1,5 @@
 .footer_ct{
-    height: 200px;
+    height: 250px;
     padding: 20px;
     background-color: #8DC3F2;
 }
@@ -47,10 +47,54 @@
     flex-direction: column;
     gap: 30px;
 }
-
-.footer_link a{
-    text-decoration: none;
+.footer_link li{
+    width: 200px;
+    height: 20px;
+    text-align: left;
+    padding: 8px;
     color: white;
-    font-size: 18px;
-    margin: 24px;
 }
+
+@media screen and (max-width: 768px) {
+    .footer_main{
+        flex-direction: column; 
+        align-items: center;
+        padding: 16px; 
+    }   
+    .footer_ct{
+        height: 100%;
+        margin-top: 24px;
+    }
+
+    .team{
+        font-size: 16px;
+    }
+
+    .footer_logo span{
+        font-size: 32px;
+    }
+
+    .footer_icon {
+        width: 350px;
+    }
+
+    .footer_link{
+        width: 90vw;
+        display: flex;
+        flex-direction: column;
+        gap: 0px;
+    }
+
+    .footer_link ul{
+        flex-direction: row;
+        padding: 12px;
+    }
+
+    .footer_link li{
+        width: 200px;
+        height: 20px;
+        text-align: left;
+        padding: 8px;
+        color: white;
+    }
+  }
