@@ -9,6 +9,7 @@ import Payment from './pages/payment'
 import CreateCourse from './pages/createcourse'
 import { createTheme, ThemeProvider } from '@mui/material'
 import './app.css'
+import Footer from './components/footer/footer'
 
 const theme = createTheme({
   typography : {
@@ -32,6 +33,7 @@ function App() {
       <Route path="/payment" element={<Payment />} />
       <Route path="/create-course" element={<CreateCourse />} />
     </Routes>
+    <Footer />
     </ThemeProvider>
   )
 }
