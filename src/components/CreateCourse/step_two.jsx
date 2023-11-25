@@ -1,5 +1,17 @@
-import { Alert, Box, Button, TextField } from "@mui/material";
+import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  Alert,
+  Box,
+  Button,
+  TextField,
+  Typography,
+} from "@mui/material";
 import React, { useState } from "react";
+import { styled } from '@mui/material/styles';
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 
 export default function StepTwo({ validationChange }) {
   const [value, setValue] = useState("");
@@ -26,6 +38,19 @@ export default function StepTwo({ validationChange }) {
       return;
     }
   };
+
+  const VisuallyHiddenInput = styled("input")({
+    clip: "rect(0 0 0 0)",
+    clipPath: "inset(50%)",
+    height: 1,
+    overflow: "hidden",
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    whiteSpace: "nowrap",
+    width: 1,
+  });
+
   return (
     <Box>
       {error ? (
@@ -35,27 +60,47 @@ export default function StepTwo({ validationChange }) {
       ) : (
         ""
       )}
-      <form>
-        <TextField
-          sx={{ width: "100%", fontSize: "16px", marginBottom: "18px" }}
-          id="outlined-multiline-static"
-          label="Deskripsi Course"
-          rows={4}
-          multiline
-          placeholder="Ceritakan kepada user mengenai course anda"
-          required
-          value={value}
-          onChange={DescHandler}
-        />
+      <Button
+        component="label"
+        variant="contained"
+        startIcon={<CloudUploadIcon />}
+        sx={{marginBottom : "16px",}}
+      >
+        Upload file
+        <VisuallyHiddenInput type="file" />
+      </Button>
 
-        <Button
-          variant="contained"
-          sx={{ textTransform: "capitalize", px: 3 }}
-          onClick={StepOne}
+
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
         >
-          Submit
-        </Button>
-      </form>
+          <Typography>Section 1</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+            malesuada lacus ex, sit amet blandit leo lobortis eget.
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2a-content"
+          id="panel2a-header"
+        >
+          <Typography>Section 2</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+            malesuada lacus ex, sit amet blandit leo lobortis eget.
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
     </Box>
   );
 }
