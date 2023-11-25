@@ -6,6 +6,15 @@ function DaftarCourse(){
         <div>
             {/*navbar*/}
             <div className="container">
+
+
+
+
+            </div>
+
+
+
+            <div className="container">
                 <h1>Temukan wawasan baru di <b>Skill<span className="mastery">Mastery</span></b></h1>
                 <p>Temukan Wawasan Baru: Pilih kursus yang sesuai dengan minat dan ambisi Anda <br /> untuk mengejar pengetahuan baru.</p>
                 <form class="d-flex" >
@@ -199,8 +208,8 @@ function DaftarCourse(){
             {/* section testimoni */}
 
             <div className="container mt-5 mb-5">
-                <center><h1>Testimoni</h1></center>
-
+                <center> <h1 >FAQ</h1>
+                    <p>Apa kata mereka tentang SkillMastery?</p></center>
                     <div className="row gy-3 mt-2 justify-content-evenly">
                         
                         <div className="col-sm-6 col-md-4 col-lg-3 ">
@@ -210,6 +219,7 @@ function DaftarCourse(){
                                 <img src="https://i.pinimg.com/564x/4b/0f/d9/4b0fd9c4f7fa6557d4681f150ade1e47.jpg" class="card-img-top" alt="img-course.jpg" />
                                 <div class="card-body">
                                     <h5 class="card-title">Anri Daniata Purba</h5>
+                                    <p className="mentor"> - Mahasiswa - </p>
                                     <p>{/* Nama pembuat */} <br />
                                     <p>"Kelas ini sungguh luar biasa! Materi yang diajarkan sangat relevan dan guru memberikan penjelasan dengan sangat jelas. Saya merasa lebih percaya diri dalam memahami konsep-konsep yang sebelumnya sulit."</p>
                                         <span class="card-text">
@@ -235,7 +245,8 @@ function DaftarCourse(){
                             <div class="card testi" >
                                 <img src="https://i.pinimg.com/564x/7d/c3/0b/7dc30bfe7d1ca4234aaf4ab8d45666e9.jpg" class="card-img-top" alt="img-course.jpg" />
                                 <div class="card-body">
-                                    <h5 class="card-title">Muhammad Haikal Syahfarel</h5>
+                                    <h5 class="card-title text-center">Muhammad Haikal Syahfarel</h5>
+                                    <p className="text-center mentor">- Pekerja -</p>
                                     <p>{/* Nama pembuat */} <br />
                                     <p>"Kelas website ini sungguh luar biasa! Materi yang disampaikan sangat jelas dan mudah dipahami. Saya benar-benar merasa meningkatkan keterampilan saya dalam membuat dan mengelola website. Terima kasih!"</p>
                                         <span class="card-text">
@@ -259,9 +270,10 @@ function DaftarCourse(){
                             {/* Kalau mau ganti card, ganti dari bawah ini sampe div class card */}
                             <div class="card testi" >
                                 
-                                <img src="https://i.pinimg.com/564x/b6/4f/79/b64f798bbe07418db6abd047f49c3fa0.jpg" class="card-img-top" alt="img-course.jpg" />
+                                <img src="https://i.pinimg.com/564x/67/db/7e/67db7ec2aacb7a7730589d21d0d03d52.jpg" class="card-img-top" alt="img-course.jpg" />
                                 <div class="card-body">
                                     <h5 class="card-title">Dionisius Reinaldo</h5>
+                                    <p className="mentor">- Mentor -</p>
                                     <p>{/* Nama pembuat */} <br />
                                     <p>"Saya sangat puas dengan kelas website ini. Instrukturnya sangat kompeten dan responsif terhadap pertanyaan. Materi yang diberikan sangat relevan dan praktis. Sangat direkomendasikan!"</p>
                                         <span class="card-text">

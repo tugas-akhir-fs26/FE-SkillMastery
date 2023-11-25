@@ -39,6 +39,15 @@
   border: none;
   align-items: center;
 }
+
+.testimoni{
+  padding-bottom: 10px;
+  border-bottom: 1px solid;
+}
+
+.mentor{
+  color: rgb(135, 135, 135);
+}
 .testi img{
 
   height: 200px;
