@@ -1,0 +1,38 @@
+.footer_ct{
+    height: 200px;
+    padding: 20px;
+    background-color: #8DC3F2;
+}
+.footer_logo span{
+    font-size: 48px;
+    font-weight: 700;
+}
+
+.main_logo{
+    color: #0460D9;
+}
+
+.team{
+    font-size: 20px;
+}
+.footer_icon{
+    gap: 20px;
+}
+.footer_icon svg{
+    width: 50px;
+    height: 50px;
+    border: 3px solid white;
+    border-radius: 50%;
+    padding: 5px;
+}
+.footer_link{
+    display: flex;
+    gap: 20px;
+}
+
+.footer_link ul{
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
