@@ -30,7 +30,6 @@ export default function StepTwo({ validationChange }) {
     });
   };
 
-
   const handleSectionContentChange = (event, index) => {
     const newSections = [...sections];
     newSections[index].content = event.target.value;
@@ -38,23 +37,21 @@ export default function StepTwo({ validationChange }) {
 
     // setiap section yang dibuat valuenya ditaruh disini
   };
-  
+
   const validationSection = () => {
     const hasSections = sections.length > 0;
     validationChange(hasSections && isSubmitted);
-  }
+  };
 
   const HandleSubmit = () => {
     // logic mengirim data disini
-    setIsSubmitted(true)
-    validationChange(true)
+    setIsSubmitted(true);
+    validationChange(true);
   };
 
-  useEffect(()=> {
-    validationSection()
-  }, [sections, isSubmitted])
-
-
+  useEffect(() => {
+    validationSection();
+  }, [sections, isSubmitted]);
 
   return (
     <Box>
@@ -83,12 +80,10 @@ export default function StepTwo({ validationChange }) {
           >
             <Box
               sx={{
-                display: {
-                  md: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  width: "100%",
-                },
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                width: "100%",
               }}
             >
               <Typography>Section {index + 1}</Typography>
