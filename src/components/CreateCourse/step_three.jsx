@@ -48,6 +48,7 @@ export default function StepThree({ validationChange }) {
 
   const PriceHandler = (event) => {
     setPrice(event.target.value);
+    rupiah(price)
     // rupiah(price) digunakan untuk mengconvert nilai number di input menjadi format rp number
     // console.log(rupiah(price));
   };
@@ -63,6 +64,16 @@ export default function StepThree({ validationChange }) {
     console.log(e.target.files);
     setFile(URL.createObjectURL(e.target.files[0]));
   }
+
+  const validationForm = () => {
+    if (title.trim() === "" || price === null) {
+        validationChange(false);
+        return;
+      }
+  }
+  useState(()=>{
+    validationForm()
+  }, [title, price])
 
   return (
     <Box>
