@@ -9,16 +9,15 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { styled } from "@mui/material/styles";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import DeleteIcon from "@mui/icons-material/Delete";
 
 export default function StepTwo({ validationChange }) {
-  const [value, setValue] = useState("");
   const [error, setError] = useState(false);
   const [sections, setSections] = useState([]);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleAddSection = () => {
     setSections((prevSections) => [...prevSections, { content: "" }]);
@@ -43,12 +42,23 @@ export default function StepTwo({ validationChange }) {
     newSections[index].content = event.target.value;
     setSections(newSections);
   };
+  
+  const validationSection = () => {
+    const hasSections = sections.length > 0;
+    validationChange(hasSections && isSubmitted);
+  }
 
   const HandleSubmit = () => {
-    if (sections.length < 0) {
-      validationChange(false);
-    }
+    // logic mengirim data disini
+    setIsSubmitted(true)
+    validationChange(true)
   };
+
+  useEffect(()=> {
+    validationSection()
+  }, [sections, isSubmitted])
+
+
   const VisuallyHiddenInput = styled("input")({
     clip: "rect(0 0 0 0)",
     clipPath: "inset(50%)",
