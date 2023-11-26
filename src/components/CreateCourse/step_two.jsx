@@ -10,7 +10,6 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { styled } from "@mui/material/styles";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import DeleteIcon from "@mui/icons-material/Delete";
 
@@ -31,16 +30,13 @@ export default function StepTwo({ validationChange }) {
     });
   };
 
-  const handleFileChange = (event, index) => {
-    const file = event.target.files[0];
-    // Handle the selected file for the specific section (index)
-    console.log(`Selected File for Section ${index}:`, file);
-  };
 
   const handleSectionContentChange = (event, index) => {
     const newSections = [...sections];
     newSections[index].content = event.target.value;
     setSections(newSections);
+
+    // setiap section yang dibuat valuenya ditaruh disini
   };
   
   const validationSection = () => {
@@ -59,17 +55,6 @@ export default function StepTwo({ validationChange }) {
   }, [sections, isSubmitted])
 
 
-  const VisuallyHiddenInput = styled("input")({
-    clip: "rect(0 0 0 0)",
-    clipPath: "inset(50%)",
-    height: 1,
-    overflow: "hidden",
-    position: "absolute",
-    bottom: 0,
-    left: 0,
-    whiteSpace: "nowrap",
-    width: 1,
-  });
 
   return (
     <Box>
@@ -117,6 +102,7 @@ export default function StepTwo({ validationChange }) {
           <AccordionDetails>
             <TextField
               label="Section Content"
+              placeholder="Tuliskan materi yang akan dipelajari pada bab ini dan sertakan link pdf atau video jika ada"
               multiline
               rows={5}
               value={section.content}
