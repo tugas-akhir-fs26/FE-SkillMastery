@@ -63,7 +63,7 @@ export default function HeaderStepper() {
   };
 
   return (
-    <Box sx={{ width: "100%" }}>
+    <Box sx={{ width: {xs : "80vw", md : "100%"},}}>
       <Stepper activeStep={activeStep}>
         {steps.map((label, index) => {
           const stepProps = {};
@@ -84,15 +84,15 @@ export default function HeaderStepper() {
         })}
       </Stepper>
       {activeStep === steps.length ? (
-        <React.Fragment>
+        <Box sx={{display : "flex", alignItems : "center", justifyContent : "center", flexDirection : "column", marginTop : "24px"}}>
           <Typography sx={{ mt: 2, mb: 1 }}>
-            All steps completed - you&apos;re finished
+            Selamat Anda Berhasil Membuat Course!
           </Typography>
-          <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
+          <Box sx={{ display: "flex", flexDirection: "row", pt: 2, alignItems : "center"}}>
             <Box sx={{ flex: "1 1 auto" }} />
-            <Button onClick={handleReset}>Reset</Button>
+            <Button variant="contained">Kembali ke Dashboard</Button>
           </Box>
-        </React.Fragment>
+        </Box>
       ) : (
         <React.Fragment>
           {/* render step nya  */}
