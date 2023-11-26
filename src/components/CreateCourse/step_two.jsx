@@ -20,6 +20,16 @@ export default function StepTwo({ validationChange }) {
 
   const handleAddSection = () => {
     setSections((prevSections) => [...prevSections, { content: "" }]);
+
+    setSections(newSections);
+
+    // Cek apakah setidaknya satu section memiliki konten yang kosong
+    const hasEmptySection = newSections.some(
+      (section) => section.content.trim() === ""
+    );
+
+    // Set error menjadi true jika ada yang kosong
+    setError(hasEmptySection);
   };
 
   const handleRemoveSection = (index) => {
@@ -44,9 +54,18 @@ export default function StepTwo({ validationChange }) {
   };
 
   const HandleSubmit = () => {
+    const hasEmptySection = sections.some(
+      (section) => section.content.trim() === ""
+    );
+
+    if (!hasEmptySection) {
+      setIsSubmitted(true);
+      validationChange(true);
+      setError(false)
+      return;
+    }
+    setError(true);
     // logic mengirim data disini
-    setIsSubmitted(true);
-    validationChange(true);
   };
 
   useEffect(() => {
@@ -57,7 +76,7 @@ export default function StepTwo({ validationChange }) {
     <Box>
       {error ? (
         <Alert severity="error" sx={{ marginBottom: "12px" }}>
-          Isi Deskripsi Terlebih Dahulu!
+          Isi Section Terlebih Dahulu!
         </Alert>
       ) : (
         ""
