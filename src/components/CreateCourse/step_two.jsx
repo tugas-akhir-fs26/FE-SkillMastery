@@ -1,3 +1,4 @@
+// @ts-nocheck
 import {
   Accordion,
   AccordionDetails,
@@ -9,36 +10,45 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useState } from "react";
-import { styled } from '@mui/material/styles';
+import { styled } from "@mui/material/styles";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 export default function StepTwo({ validationChange }) {
   const [value, setValue] = useState("");
   const [error, setError] = useState(false);
+  const [sections, setSections] = useState([]);
 
-  const StepOne = (event) => {
-    event.preventDefault();
-
-    if (value.trim() === "") {
-      setError(true);
-      return;
-    }
-    // ketika sudah ada isinya maka kiirm data saat ini pake alert
-    alert(value);
-    validationChange(true);
+  const handleAddSection = () => {
+    setSections((prevSections) => [...prevSections, { content: "" }]);
   };
 
-  const DescHandler = (event) => {
-    setValue(event.target.value);
-    setError(false);
+  const handleRemoveSection = (index) => {
+    setSections((prevSections) => {
+      const newSections = [...prevSections];
+      newSections.splice(index, 1);
+      return newSections;
+    });
+  };
 
-    if (event.target.value.trim() === "") {
+  const handleFileChange = (event, index) => {
+    const file = event.target.files[0];
+    // Handle the selected file for the specific section (index)
+    console.log(`Selected File for Section ${index}:`, file);
+  };
+
+  const handleSectionContentChange = (event, index) => {
+    const newSections = [...sections];
+    newSections[index].content = event.target.value;
+    setSections(newSections);
+  };
+
+  const HandleSubmit = () => {
+    if (sections.length < 0) {
       validationChange(false);
-      return;
     }
   };
-
   const VisuallyHiddenInput = styled("input")({
     clip: "rect(0 0 0 0)",
     clipPath: "inset(50%)",
@@ -60,47 +70,64 @@ export default function StepTwo({ validationChange }) {
       ) : (
         ""
       )}
+
       <Button
-        component="label"
         variant="contained"
-        startIcon={<CloudUploadIcon />}
-        sx={{marginBottom : "16px",}}
+        color="primary"
+        onClick={handleAddSection}
+        sx={{ margin: "16px 0" }}
       >
-        Upload file
-        <VisuallyHiddenInput type="file" />
+        Add Section
       </Button>
-
-
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
+      {sections.map((section, index) => (
+        <Accordion key={index}>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls={`panel${index}-content`}
+            id={`panel${index}-header`}
+          >
+            <Box
+              sx={{
+                display: {
+                  md: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  width: "100%",
+                },
+              }}
+            >
+              <Typography>Section {index + 1}</Typography>
+              <Button
+                onClick={() => handleRemoveSection(index)}
+                startIcon={<DeleteIcon />}
+                sx={{}}
+              ></Button>
+            </Box>
+          </AccordionSummary>
+          <AccordionDetails>
+            <TextField
+              label="Section Content"
+              multiline
+              rows={5}
+              value={section.content}
+              onChange={(e) => handleSectionContentChange(e, index)}
+              sx={{ width: "100%" }}
+            />
+          </AccordionDetails>
+        </Accordion>
+      ))}
+      {sections.length > 0 ? (
+        <Button
+          variant="contained"
+          color="success"
+          sx={{ margin: "16px 0" }}
+          onClick={HandleSubmit}
         >
-          <Typography>Section 1</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel2a-content"
-          id="panel2a-header"
-        >
-          <Typography>Section 2</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
+          Submit
+        </Button>
+      ) : (
+        <Alert severity="info">Belum ada Section yang dibuat!</Alert>
+      )}
     </Box>
   );
 }
