@@ -7,6 +7,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import StepOne from "./step_one";
 import StepTwo from "./step_two";
+import StepThree from "./step_three";
 
 const steps = ["Deskripsi Kursus", "Upload Materi", "Publish Kursus"];
 
@@ -104,6 +105,9 @@ export default function HeaderStepper() {
             {/* render step 2 */}
             {activeStep === 1 && (
               <StepTwo validationChange={handleStepValidation} />
+            )}
+            {activeStep === 2 && (
+              <StepThree validationChange={handleStepValidation} />
             )}
           </Box>
           <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
