@@ -10,8 +10,10 @@ const DiskusiPage = () =>{
         <div>
             <div className="container">
                 
-
-                <i class="bi bi-list fa-xl " data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"></i>
+                <div className=" mt-4 mb-4">
+                    <i class="bi bi-list fa-xl" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"></i>
+                </div>
+                
 
                 <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
                 <div class="offcanvas-header">
@@ -36,7 +38,7 @@ const DiskusiPage = () =>{
                 </div>
                 </div>
                 
-                <div className="container">
+                <div className="">
                     <h1>Forum Diskusi 1#</h1>
                     <div className="diskusi mt-5 d-flex ">
                         <img src="https://i.pinimg.com/564x/4b/0f/d9/4b0fd9c4f7fa6557d4681f150ade1e47.jpg" alt="" />
