@@ -1,0 +1,31 @@
+.icon-diskusi{
+    height: 20px;
+    width: 20px;
+}
+
+.mastery{
+    color: #0460D9;
+}
+
+.name-user{
+    margin-left: 20px;
+}
+
+.name-user button{
+    border-radius: none;
+}
+
+.diskusi{
+    border-bottom: 1px solid;
+}
+
+.name{
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.diskusi img{
+    height: 100px;
+    width: 100px;
+}
+
