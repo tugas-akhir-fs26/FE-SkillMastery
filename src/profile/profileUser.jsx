@@ -6,14 +6,6 @@ const ProfileUser = () =>{
         
         <div className="mt-3 ">
 
-            
-                 
-                
-                    {/* dashboard */}
-                    
-                
-                    
-                    
                 <div className="container form-detail">
                     <div className="mb-4">
                         <i data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling" class="bi bi-list fa-xl"></i>
@@ -46,9 +38,6 @@ const ProfileUser = () =>{
                         </div>  
                         <div className="m-3">
                             <button type="submit" class="btn btn-primary">Upload Foto</button>
-                        </div>
-                        <div>
-                            <button className="btn btn-outline-primary" >Gunakan Karakter Avatar</button>
                         </div>
                     </div>
 
