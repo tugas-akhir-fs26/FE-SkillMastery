@@ -14,3 +14,12 @@
     border: 1px solid;
     font-size: medium;
 }
+
+.dashboard-user a{
+    text-decoration: none;
+}
+
+.dashboard-user:hover{
+    transition: 0.5s;
+    background-color: aquamarine;
+}
