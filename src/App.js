@@ -1,9 +1,10 @@
 import React from "react";
+import ProfileUser from "./profile/profileUser";
 
 function App() {
   return (
     <div className="App">
-      <h1>Hai</h1>
+      <ProfileUser/>
     </div>
   );
 }

@@ -1,0 +1,16 @@
+
+.foto-profil img{
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+}
+
+
+.form-user input{
+    border: 1px solid;
+}
+
+.form-user textarea{
+    border: 1px solid;
+    font-size: medium;
+}
