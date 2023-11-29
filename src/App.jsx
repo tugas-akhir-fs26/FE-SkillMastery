@@ -1,11 +1,16 @@
-import { useState, React } from 'react'
+import React from 'react';
+import Register from './pages/register';
+import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-function App() {
-   return (
-    <>
-      <h1>Skill Mastery</h1>
-    </>
-  )
-}
+const App = () => {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Register />} />
+      </Routes>
+    </Router>
+  );
+};
 
-export default App
+export default App;
