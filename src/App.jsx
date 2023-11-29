@@ -1,11 +1,20 @@
-import { useState, React } from 'react'
+import React from 'react';
+import Workshop from './pages/workshop';
+import DaftarWorkshop from './pages/daftarworkshop';
+import ReactDOM from 'react-dom';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
 
-function App() {
-   return (
+const App = () => {
+  return (
     <>
-      <h1>Skill Mastery</h1>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Workshop />} />
+          <Route path="/daftarworkshop" element={<DaftarWorkshop />} />
+        </Routes>
+      </BrowserRouter>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
