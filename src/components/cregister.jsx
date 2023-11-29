@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import '../css/register.css';
 import axios from 'axios';
 import Validation from './cregistervalidation';
 import SVGImage from './images/register.svg';
 import EyeClosed from './images/eyeclosedicon.svg';
 import EyeOpen from './images/eyeopenicon.svg';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 
 function Register() {
+  const navigate = useNavigate();
   const [values, setValues] = useState({
     name: '',
     email: '',
@@ -23,6 +27,11 @@ function Register() {
     event.preventDefault();
     setErrors(Validation(values));
     const { name, email, password } = values;
+
+    if (Object.values(errors).some((error) => error !== '')) {
+      console.log('Ada field yang belum terisi');
+      return;
+    }
 
     try {
       const response = await fetch('https://6528c37e931d71583df26ee3.mockapi.io/users', {
@@ -70,16 +79,32 @@ function Register() {
                 </div>
               </div>
               <div className="button">
-                <button type="submit" className="btn">
-                  Daftar
-                </button>
+                <Stack spacing={2} direction="row">
+                  <Button
+                    variant="contained"
+                    onClick={() => {
+                      navigate('/homepage');
+                    }}
+                    onSubmit={handleSubmit}
+                  >
+                    Daftar
+                  </Button>
+                </Stack>
               </div>
             </form>
-            <p>
-              Sudah Punya Akun?{' '}
-              <a href="">
-                <b>Login</b>
-              </a>
+            <p style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+              Sudah Punya Akun?
+              <Stack spacing={2} direction="row">
+                <Button
+                  variant="text"
+                  onClick={() => {
+                    navigate('/login');
+                  }}
+                  style={{ color: 'black' }}
+                >
+                  Log in
+                </Button>
+              </Stack>
             </p>
           </div>
         </div>
