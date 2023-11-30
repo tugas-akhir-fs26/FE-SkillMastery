@@ -1,12 +1,11 @@
-import React from "react"
+import React from 'react';
 
-
-function Course(){
-    return(
-        <>
-            <h1>Ini halaman Course</h1>
-        </>
-    )
+function Course() {
+  return (
+    <>
+      <h1>Ini halaman Course</h1>
+    </>
+  );
 }
 
-export default Course
+export default Course;
