@@ -15,6 +15,7 @@ import HomeDashboard from './pages/dashboardhome';
 import CourseGuru from './pages/courseguru';
 import Forum from './pages/forum';
 import Setting from './pages/setting';
+import Instruktur from './pages/instruktur';
 
 const theme = createTheme({
   typography: {
@@ -43,6 +44,7 @@ function App() {
         <Route path="/course-guru" exact element={<CourseGuru />}></Route>
         <Route path="/forum" exact element={<Forum />}></Route>
         <Route path="/setting" exact element={<Setting />}></Route>
+        <Route path="/instruktur" element={<Instruktur />} />
       </Routes>
       <Footer />
     </ThemeProvider>
