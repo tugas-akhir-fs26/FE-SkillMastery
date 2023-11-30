@@ -1,0 +1,11 @@
+.img_course{
+    height: 200px;
+    width: 250px;
+}
+
+@media screen and (max-width: 768px){
+    .img_course{
+        width: 200px;
+        height: 150px;
+    }
+}
