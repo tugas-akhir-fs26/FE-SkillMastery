@@ -1,12 +1,12 @@
-import React from "react"
+import React from 'react';
+import Workshop from '../components/cworkshop';
 
-
-function Workshop(){
-    return(
-        <>
-            <h1>Ini halaman Workshop</h1>
-        </>
-    )
+function WorkshopPage() {
+  return (
+    <div>
+      <Workshop />
+    </div>
+  );
 }
 
-export default Workshop
+export default WorkshopPage;
