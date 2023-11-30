@@ -11,6 +11,10 @@ import './app.css';
 import Footer from './components/footer/footer';
 import Register from './pages/register';
 import DaftarWorkshop from './pages/daftarworkshop';
+import HomeDashboard from './pages/dashboardhome';
+import CourseGuru from './pages/courseguru';
+import Forum from './pages/forum';
+import Setting from './pages/setting';
 
 const theme = createTheme({
   typography: {
@@ -35,6 +39,10 @@ function App() {
         <Route path="/daftarworkshop" element={<DaftarWorkshop />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="/create-course" element={<CreateCourse />} />
+        <Route path="/dashboard-home" exact element={<HomeDashboard />}></Route>
+        <Route path="/course-guru" exact element={<CourseGuru />}></Route>
+        <Route path="/forum" exact element={<Forum />}></Route>
+        <Route path="/setting" exact element={<Setting />}></Route>
       </Routes>
       <Footer />
     </ThemeProvider>
