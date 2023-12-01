@@ -1,0 +1,11 @@
+.img_payments{
+    width: 100px;
+    height: 40px;
+}
+
+@media screen and (max-width: 768px){
+    .img_payments{
+        width: 55px;
+        height: 25px;
+    }
+}
