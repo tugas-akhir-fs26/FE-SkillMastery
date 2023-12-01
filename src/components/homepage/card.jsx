@@ -17,15 +17,15 @@ export default function CourseCard() {
         image="../src/assets/courses/figma.jpg"
         title="Belajar Node"
       />
-      <CardContent>
+      <CardContent sx={{}}>
         <Typography gutterBottom variant="h5" component="div" sx={{fontWeight: 600}}>
           Belajar NodeJS
         </Typography>
         <Typography variant="subtitle1"sx={{fontSize:"20px"}}>Dionisius Reinaldo</Typography>
         {/* tempat render rating */}
         <RatingCourse value={value}/>
-        <Typography sx={{fontSize:"24px", marginTop: "10px", fontWeight: 600 }}>Rp.120.000</Typography>
-
+        <Typography sx={{fontSize:"24px", marginTop: "10px", fontWeight: 600,textAlign : "left" }}>Rp.120.000</Typography>
+      
         <Button
           variant="contained"
           sx={{

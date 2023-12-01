@@ -46,7 +46,7 @@ export default function Headline() {
       </Box>
       <Typography
         sx={{
-          fontSize: {xs : "20px", md : "24px"}
+          fontSize: {xs : "20px", md : "24px", textAlign : "left"}
         }}
       >
         Media belajar online yang menginspirasi, menghadirkan peluang untuk

@@ -16,6 +16,7 @@ import CourseGuru from './pages/courseguru';
 import Forum from './pages/forum';
 import Setting from './pages/setting';
 import Instruktur from './pages/instruktur';
+import React from 'react';
 
 const theme = createTheme({
   typography: {
@@ -40,10 +41,10 @@ function App() {
         <Route path="/daftarworkshop" element={<DaftarWorkshop />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="/create-course" element={<CreateCourse />} />
-        <Route path="/dashboard-home" exact element={<HomeDashboard />}></Route>
-        <Route path="/course-guru" exact element={<CourseGuru />}></Route>
-        <Route path="/forum" exact element={<Forum />}></Route>
-        <Route path="/setting" exact element={<Setting />}></Route>
+        <Route path="/dashboard-home" element={<HomeDashboard />}></Route>
+        <Route path="/course-guru" element={<CourseGuru />}></Route>
+        <Route path="/forum" element={<Forum />}></Route>
+        <Route path="/setting" element={<Setting />}></Route>
         <Route path="/instruktur" element={<Instruktur />} />
       </Routes>
       <Footer />

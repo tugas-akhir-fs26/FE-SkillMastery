@@ -13,7 +13,7 @@ import CustomAvatar from "./avatar";
 import Logo from "./button-logo";
 import { Link } from "react-router-dom";
 
-const pages = ["course", "workshop", "mentor"];
+const pages = ["course", "workshop", "instruktur"];
 const settings = ["Profile", "Dashboard", "Logout"];
 
 function Navbar() {

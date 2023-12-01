@@ -3,7 +3,7 @@ import Workshop from '../components/cworkshop';
 
 function WorkshopPage() {
   return (
-    <div>
+    <div style={{display:"flex", alignItems:"center"}}>
       <Workshop />
     </div>
   );

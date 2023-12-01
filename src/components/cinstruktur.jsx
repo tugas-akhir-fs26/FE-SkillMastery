@@ -62,7 +62,7 @@ export default function Checkout() {
 
   return (
     <div style={{ margin: 0, padding: '0' }}>
-      <React.Fragment>
+      <Box sx={{height : "100vh"}}>
         <CssBaseline />
         <AppBar
           position="absolute"
@@ -106,7 +106,7 @@ export default function Checkout() {
             )}
           </Paper>
         </Container>
-      </React.Fragment>
+      </Box>
     </div>
   );
 }
