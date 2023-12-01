@@ -7,10 +7,10 @@ import Rating from "@mui/material/Rating";
 export default function Testimonials(Props) {
   const [value, setValue] = React.useState(5);
   return (
-    <Box>
+    <Box sx={{height:{xs:"70vh"}}}>
         <Box
           className={` ${styles.testi}`}
-          sx={{ textAlign: "center", height: 400, width: 400, margin : "auto" }}
+          sx={{ textAlign: "center", height: {xs: 300,md :400}, width: {xs: 300,md :400}, margin : "auto" }}
         >
           <img
             src={Props.imageSrc}

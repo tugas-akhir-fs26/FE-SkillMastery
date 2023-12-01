@@ -73,6 +73,7 @@ function DaftarCourse() {
               textTransform: "capitalize",
               fontWeight: 400,
               fontSize: "18px",
+              marginTop : {xs : "12px", md : "0"}
             }}
           >
             Cari
@@ -82,8 +83,8 @@ function DaftarCourse() {
 
       {/* Course List */}
       <div className={styles.container}>
-        <Box className={`row gy-4 mt-2 ${styles.courseList}`} sx={{ p: 3 }}>
-          <Grid container spacing={2}>
+        <Box className={`${styles.courseList}`} sx={{ p: 3, marginBottom : "32px"}}>
+          <Grid container spacing={0}>
             <Grid xs={12} md={3}>
               <CourseCard />
             </Grid>
@@ -105,7 +106,7 @@ function DaftarCourse() {
             <Grid xs={12} md={3}>
               <CourseCard />
             </Grid>
-            <Grid xs={3}>
+            <Grid xs={12} md={3}>
               <CourseCard />
             </Grid>
           </Grid>
