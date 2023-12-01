@@ -1,13 +1,114 @@
 // @ts-nocheck
-import React from "react";
-import { Box, Typography, Button } from "@mui/material";
+import React, { useState } from "react";
+import {
+  Box,
+  Typography,
+  Button,
+  ToggleButton,
+  ToggleButtonGroup,
+} from "@mui/material";
 import styles from "./courseDetail.module.css"; // Replace with the correct path
 import Rating from "@mui/material/Rating";
 import DescriptionCourse from "./description";
+import DetailInstruktur from "./instrukturDetail";
+import Curiculum from "./curiculum";
 
 function DetailClass() {
+  const [alignment, setAlignment] = useState("All");
+
+  const handleChange = (event, newAlignment) => {
+    setAlignment(newAlignment);
+  };
+
+  const renderContent = () => {
+    switch (alignment) {
+      case "Kurikulum":
+        return (
+          <Box
+            sx={{
+              border: "1px solid black",
+              borderRadius: "5px",
+              p: 3,
+              width: "50vw",
+              display: "flex",
+            }}
+          >
+            <Curiculum />
+          </Box>
+        );
+      case "Description":
+        return (
+          <Box
+            sx={{
+              border: "1px solid black",
+              borderRadius: "5px",
+              p: 3,
+              width: "50vw",
+              display: "flex",
+            }}
+          >
+            <DescriptionCourse />
+          </Box>
+        );
+      case "Mentor":
+        return (
+          <Box
+            sx={{
+              border: "1px solid black",
+              borderRadius: "5px",
+              p: 3,
+              width: "50vw",
+              display: "flex",
+            }}
+          >
+            <DetailInstruktur />
+          </Box>
+        );
+      case "All":
+      default:
+        // Menampilkan semua konten
+        return (
+          <>
+            <Box
+              sx={{
+                border: "1px solid black",
+                borderRadius: "5px",
+                p: 3,
+                width: "50vw",
+                display: "flex",
+              }}
+            >
+              <Curiculum />
+            </Box>
+            <Box
+              sx={{
+                border: "1px solid black",
+                borderRadius: "5px",
+                p: 3,
+                width: "50vw",
+                display: "flex",
+              }}
+            >
+              <DescriptionCourse />
+            </Box>
+            <Box
+              sx={{
+                border: "1px solid black",
+                borderRadius: "5px",
+                p: 3,
+                width: "50vw",
+                display: "flex",
+              }}
+            >
+              <DetailInstruktur />
+            </Box>
+          </>
+        );
+    }
+  };
+
   return (
-    <Box sx={{ p: 3 }}>
+    <Box sx={{ height: "100%", p:3}}>
       <Box
         sx={{
           border: "1px solid black",
@@ -69,18 +170,21 @@ function DetailClass() {
         </Box>
       </Box>
 
-      <Box
-        sx={{
-          border: "1px solid black",
-          borderRadius: "5px",
-          p: 3,
-          width: "50vw",
-          display: "flex",
-          marginTop : "24px"
-        }}
+      <ToggleButtonGroup
+        color="primary"
+        value={alignment}
+        exclusive
+        onChange={handleChange}
+        aria-label="Platform"
+        sx={{marginTop : "24px"}}
       >
-        <DescriptionCourse />
-      </Box>
+        <ToggleButton value="All">Semua</ToggleButton>
+        <ToggleButton value="Kurikulum">Kurikulum</ToggleButton>
+        <ToggleButton value="Description">Deskripsi</ToggleButton>
+        <ToggleButton value="Mentor">Mentor</ToggleButton>
+      </ToggleButtonGroup>
+
+      {renderContent()}
     </Box>
   );
 }
