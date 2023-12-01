@@ -1,0 +1,61 @@
+
+.card{
+    width: 18rem;
+}
+
+.search{
+    border: 1px solid;
+    width: 60vw;
+    height: 50px;
+    margin-right: 16px;
+}
+
+.fas{
+    color: #f5a432;
+}
+
+.btn-primary{
+  width: 100%;
+}
+.mastery{
+  color: #0460D9;
+}
+
+.filter{
+  padding: 7px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.filter:hover{
+  transition: 0.4s;
+  background-color: #0460D9;
+  color: white;
+}
+
+@media only screen and (max-width: 600px) {
+  .head-filter{
+    display: none;
+  }
+
+}
+
+.testi{
+  border: none;
+  align-items: center;
+}
+/* update */
+.testimoni{
+  padding-bottom: 10px;
+  border-bottom: 1px solid;
+}
+
+.mentor{
+  color: rgb(135, 135, 135);
+}
+.testi img{
+
+  height: 200px;
+  width: 200px;
+  border-radius: 100%;
+}
