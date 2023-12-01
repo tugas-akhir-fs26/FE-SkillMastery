@@ -1,9 +1,10 @@
 import React from 'react';
+import DaftarCourse from '../components/course/course';
 
 function Course() {
   return (
     <>
-      <h1>Ini halaman Course</h1>
+      <DaftarCourse />
     </>
   );
 }
