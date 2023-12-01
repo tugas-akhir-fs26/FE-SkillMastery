@@ -23,7 +23,7 @@ import Home from '@mui/icons-material/Home';
 
 const drawerWidth = 240;
 
-export default function PermanentDrawerLeft() {
+export default function ProfileUser() {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
