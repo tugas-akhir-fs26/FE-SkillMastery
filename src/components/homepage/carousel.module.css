@@ -1,0 +1,11 @@
+.card_wrapper {
+  width: 90vw;
+  margin: auto;
+  padding: 50px;
+}
+
+@media screen and (max-width: 768px) {
+  .card_wrapper {
+    width: 70vw;
+  }
+}
