@@ -1,0 +1,36 @@
+.input_bar input {
+    border: none;
+    font-size: 20px;
+    width: 100%;
+    height: 40px;
+    background-color: transparent;
+    margin-left: 10px;
+}
+.icon{
+    margin-left: 10px;
+}
+input:focus{
+    outline: none;
+}
+
+.input_bar {
+    width: 550px;
+    height: 40px;
+    border: 1px solid black ;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    padding: 2px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.input_wrapper{
+    width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .input_bar {
+        max-width: 300px;
+    }
+  }
