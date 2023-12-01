@@ -17,6 +17,7 @@ import Forum from './pages/forum';
 import Setting from './pages/setting';
 import Instruktur from './pages/instruktur';
 import React from 'react';
+import CourseDetail from './pages/courseDetail';
 
 const theme = createTheme({
   typography: {
@@ -46,6 +47,7 @@ function App() {
         <Route path="/forum" element={<Forum />}></Route>
         <Route path="/setting" element={<Setting />}></Route>
         <Route path="/instruktur" element={<Instruktur />} />
+        <Route path="/course-detail" element={<CourseDetail />} />
       </Routes>
       <Footer />
     </ThemeProvider>
