@@ -18,6 +18,7 @@ import Setting from './pages/setting';
 import Instruktur from './pages/instruktur';
 import React from 'react';
 import CourseDetail from './pages/courseDetail';
+import Login from './components/login/login';
 
 const theme = createTheme({
   typography: {
@@ -48,6 +49,7 @@ function App() {
         <Route path="/setting" element={<Setting />}></Route>
         <Route path="/instruktur" element={<Instruktur />} />
         <Route path="/course-detail" element={<CourseDetail />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
       <Footer />
     </ThemeProvider>
