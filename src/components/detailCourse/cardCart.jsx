@@ -1,5 +1,6 @@
 import { Box, Button, Typography } from "@mui/material";
 import React from "react";
+import Style from './courseDetail.module.css'
 
 export default function CardDetailCourse() {
   return (
@@ -13,7 +14,7 @@ export default function CardDetailCourse() {
         justifyContent: "center",
       }}
     >
-      <img src="../src/assets/courses/figma.jpg" alt="" width={400} />
+      <img src="../src/assets/courses/figma.jpg" alt="" className={Style.img_cart} />
       <Box sx={{display : "flex", flexDirection : "column", alignItems : "start"}}>
         <Typography sx={{ fontSize: "32px", fontWeight: 600 }}>
           HTML Dasar

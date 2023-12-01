@@ -12,6 +12,7 @@ import Rating from "@mui/material/Rating";
 import DescriptionCourse from "./description";
 import DetailInstruktur from "./instrukturDetail";
 import Curiculum from "./curiculum";
+import Style from './courseDetail.module.css'
 
 function InfoCourse() {
   const [alignment, setAlignment] = useState("All");
@@ -29,7 +30,7 @@ function InfoCourse() {
               border: "1px solid black",
               borderRadius: "5px",
               p: 3,
-              width: "50vw",
+              width:{ xs : "70vw",md: "50vw"},
               display: "flex",
             }}
           >
@@ -43,8 +44,8 @@ function InfoCourse() {
               border: "1px solid black",
               borderRadius: "5px",
               p: 3,
-              width: "50vw",
               display: "flex",
+              width:{ xs : "70vw",md: "50vw"},
             }}
           >
             <DescriptionCourse />
@@ -57,8 +58,8 @@ function InfoCourse() {
               border: "1px solid black",
               borderRadius: "5px",
               p: 3,
-              width: "50vw",
               display: "flex",
+              width:{ xs : "70vw",md: "50vw"},
             }}
           >
             <DetailInstruktur />
@@ -74,8 +75,8 @@ function InfoCourse() {
                 border: "1px solid black",
                 borderRadius: "5px",
                 p: 3,
-                width: "50vw",
                 display: "flex",
+                width:{ xs : "70vw",md: "50vw"},
               }}
             >
               <Curiculum />
@@ -85,8 +86,8 @@ function InfoCourse() {
                 border: "1px solid black",
                 borderRadius: "5px",
                 p: 3,
-                width: "50vw",
                 display: "flex",
+                width:{ xs : "70vw",md: "50vw"},
               }}
             >
               <DescriptionCourse />
@@ -96,8 +97,8 @@ function InfoCourse() {
                 border: "1px solid black",
                 borderRadius: "5px",
                 p: 3,
-                width: "50vw",
                 display: "flex",
+                width:{ xs : "70vw",md: "50vw"},
               }}
             >
               <DetailInstruktur />
@@ -108,18 +109,20 @@ function InfoCourse() {
   };
 
   return (
-    <Box sx={{ height: "100%", p:3}}>
+    <Box sx={{width : {xs : "80vw"}, height: "100%", p:3, display : {xs : "flex"}, flexDirection : {xs : "column"}}}>
       <Box
         sx={{
           border: "1px solid black",
           borderRadius: "5px",
           p: 3,
-          width: "50vw",
+          width: {md: "50vw"},
           display: "flex",
+          flexDirection : {xs : "column"},
           gap: "16px",
+          justifyContent : "center"
         }}
       >
-        <img src="../src/assets/courses/figma.jpg" alt="" width={300} />
+        <img src="../src/assets/courses/figma.jpg" alt="" className={Style.img_cart}/>
         <Box>
           <Typography
             variant="h2"
@@ -176,7 +179,8 @@ function InfoCourse() {
         exclusive
         onChange={handleChange}
         aria-label="Platform"
-        sx={{marginTop : "24px"}}
+        size="small"
+        sx={{textTransform: "capitalize",marginTop : "24px", fontSize : {xs : "12px"}, }}
       >
         <ToggleButton value="All">Semua</ToggleButton>
         <ToggleButton value="Kurikulum">Kurikulum</ToggleButton>

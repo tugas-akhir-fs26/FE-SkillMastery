@@ -15,7 +15,7 @@ export default function DescriptionCourse() {
       </Typography>
 
       <ul>
-        <li>
+        <li style={{listStyleType : "none"}}>
           Kelas web developer akan membawa Anda ke dalam dunia pembuatan situs
           web modern. Anda akan mempelajari HTML, CSS, JavaScript, dan banyak
           lagi. Kelas ini akan membantu Anda memahami konsep dasar dan canggih

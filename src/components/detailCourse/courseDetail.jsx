@@ -10,10 +10,10 @@ function DetailCourse() {
   return (
     <Box sx={{ height: "100%", p: 3 }}>
       <Grid container spacing={2}>
-        <Grid item xs={7}>
+        <Grid item xs={12} md={8}>
           <InfoCourse />
         </Grid>
-        <Grid item xs={5}>
+        <Grid item xs={12} md={4}>
           <CardDetailCourse />
         </Grid>
       </Grid>

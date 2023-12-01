@@ -21,7 +21,7 @@ export default function DetailInstruktur() {
         </Box>
       </Box>
       <ul>
-        <li>
+        <li style={{listStyleType : "none"}}>
           Sebagai seorang instruktur, saya berkomitmen untuk memandu siswa dalam
           perjalanan mereka memahami dan menguasai dunia pengembangan web. Saya
           percaya bahwa keterampilan pengembangan web adalah salah satu kunci
