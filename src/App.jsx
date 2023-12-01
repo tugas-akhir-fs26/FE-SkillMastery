@@ -1,3 +1,4 @@
+
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/navbar/navbar';
 import Home from './pages/home';
@@ -18,6 +19,7 @@ import Setting from './pages/setting';
 import Instruktur from './pages/instruktur';
 import React from 'react';
 import CourseDetail from './pages/courseDetail';
+import ProfileUser from './components/profil-user/profil';
 
 const theme = createTheme({
   typography: {
@@ -48,10 +50,12 @@ function App() {
         <Route path="/setting" element={<Setting />}></Route>
         <Route path="/instruktur" element={<Instruktur />} />
         <Route path="/course-detail" element={<CourseDetail />} />
+        <Route path="/profil-user" element={<ProfileUser/>} />
+        
       </Routes>
       <Footer />
     </ThemeProvider>
   );
 }
 
-export default App;
+export default App;;
