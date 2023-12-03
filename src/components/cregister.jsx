@@ -6,7 +6,6 @@ import Validation from "./cregistervalidation";
 import SVGImage from "./images/register.svg";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import { Alert, Backdrop, CircularProgress } from "@mui/material";
 
 function Register() {
@@ -157,9 +156,9 @@ function Register() {
                   onClick={() => {
                     navigate("/login");
                   }}
-                  style={{ color: "black" }}
+                  sx={{ textTransform: "capitalize", fontSize : "18px", color : "#0460D9" }}
                 >
-                  Log in
+                  Login
                 </Button>
               </Stack>
             </p>

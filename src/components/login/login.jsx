@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./register.css";
 import axios from "axios";
+import "./register.css";
 import Validation from "../cregistervalidation";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
+import { Box, TextField, Typography } from "@mui/material";
 
 export default function Login() {
   const navigate = useNavigate();
   const [values, setValues] = useState({
-    name: "",
     email: "",
     password: "",
   });
@@ -18,15 +18,14 @@ export default function Login() {
   const handleInput = (event) => {
     setValues((prev) => ({
       ...prev,
-      [event.target.name]: [event.target.value],
+      [event.target.name]: event.target.value,
     }));
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setErrors(Validation(values));
-    const { name, email, password } = values;
-
+    // setErrors(Validation(values));
+    console.log(values);
     if (Object.values(errors).some((error) => error !== "")) {
       console.log("Ada field yang belum terisi");
       return;
@@ -34,16 +33,16 @@ export default function Login() {
 
     try {
       axios({
-        method : "POST",
-        url : "https://skillmastery.adaptable.app/auth/register",
-        data : {
-          Name : name,
-          email : email,
-          password : password
-        }
+        method: "POST",
+        url: "http://localhost:3000/auth/login",
+        data: {
+          email: values.email,
+          password: values.password,
+        },
       })
         .then(function (response) {
-          console.log(response);
+          console.log(response.data);
+          localStorage.setItem("token", response.data.token);
         })
         .catch(function (error) {
           console.log(error);
@@ -54,96 +53,133 @@ export default function Login() {
   };
 
   return (
-    <div className="body">
+    <Box className="body">
       <div className="container">
-        <div className="register-container">
-          <div className="register-form">
-            <h1 className="logo-title">
-              <span>Skill</span>
-              <span>Mastery</span>
-            </h1>
-            <form id="regis-form" onSubmit={handleSubmit}>
-              <div className="input-form">
-                <label htmlFor="name"></label>
-                <input
-                  type="text"
-                  id="name"
-                  placeholder="Nama"
-                  name="name"
-                  onChange={handleInput}
-                />
-                <div className="textalert">
-                  {errors.name && <span>{errors.name}</span>}
-                </div>
-              </div>
-              <div className="input-form">
-                <label htmlFor="email"></label>
-                <input
-                  type="email"
-                  id="email"
-                  placeholder="Email"
-                  name="email"
-                  onChange={handleInput}
-                />
-                <div className="textalert">
-                  {errors.email && <span>{errors.email}</span>}
-                </div>
-              </div>
-              <div className="input-form">
-                <div className="input-password">
-                  <label htmlFor="password"></label>
-                  <input
-                    type="password"
-                    id="password"
-                    placeholder="Password"
-                    name="password"
-                    onChange={handleInput}
-                  />
-                  <div>
-                    {errors.password && (
-                      <span className="textalert">{errors.password}</span>
-                    )}
-                  </div>
-                </div>
-              </div>
-              <div className="button">
-                <Stack spacing={2} direction="row">
-                  <Button
-                    variant="contained"
-                    onClick={() => {
-                      navigate("/homepage");
-                    }}
-                    onSubmit={handleSubmit}
-                  >
-                    Daftar
-                  </Button>
-                </Stack>
-              </div>
-            </form>
-            <p
-              style={{
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            p: 2,
+          }}
+        >
+          {/* Header */}
+          <Box sx={{ display: "flex", flexDirection: "column" }}>
+            {/* logo skillmastery */}
+            <Box sx={{ display: "flex" }}>
+              <Typography
+                variant="h5"
+                sx={{
+                  color: "#0460D9",
+                  fontWeight: 700,
+                  fontSize: "48px",
+                  textTransform: "capitalize",
+                }}
+              >
+                Skill
+              </Typography>
+              <Typography
+                variant="h5"
+                sx={{
+                  color: "black",
+                  fontWeight: 700,
+                  fontSize: "48px",
+                  textTransform: "capitalize",
+                }}
+              >
+                Mastery
+              </Typography>
+            </Box>
+            <Typography>Selamat datang di halaman login</Typography>
+          </Box>
+          <form>
+            <Box
+              className="input-form"
+              sx={{
                 display: "flex",
-                justifyContent: "center",
+                flexDirection: "column",
+                gap: { xs: "32px", md: "24px" },
+                width: { xs: "300px", md: "450px" },
+                height: { xs: "100vh", md: "100%" },
+                p: 3,
+                marginTop: "24px",
                 alignItems: "center",
               }}
             >
-              Sudah Punya Akun?
-              <Stack spacing={2} direction="row">
-                <Button
-                  variant="text"
-                  onClick={() => {
-                    navigate("/login");
+              <TextField
+                id="outlined-basic"
+                label="Email"
+                name="email"
+                variant="outlined"
+                onChange={handleInput}
+                sx={{ width: "100%" }}
+              />
+              <TextField
+                id="outlined-basic"
+                label="password"
+                name="password"
+                variant="outlined"
+                onChange={handleInput}
+                sx={{ width: "100%" }}
+              />
+
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+              >
+                <Stack spacing={2} direction="row">
+                  <Button
+                    sx={{
+                      textTransform: "capitalize",
+                      px: 5,
+                      fontWeight: 400,
+                      fontSize: "18px",
+                    }}
+                    variant="contained"
+                    // onClick={() => {
+                    //   navigate("/");
+                    // }}
+                    onClick={handleSubmit}
+                  >
+                    Masuk
+                  </Button>
+                </Stack>
+                <p
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
                   }}
-                  style={{ color: "black" }}
                 >
-                  Log in
-                </Button>
-              </Stack>
-            </p>
-          </div>
-        </div>
-        <div className="img-container"></div>
+                  Belum Punya Akun?
+                  <Stack spacing={2} direction="row">
+                    <Button
+                      variant="text"
+                      onClick={() => {
+                        navigate("/register");
+                      }}
+                      sx={{
+                        textTransform: "capitalize",
+                        fontSize: "18px",
+                        color: "#0460D9",
+                      }}
+                    >
+                      Daftar
+                    </Button>
+                  </Stack>
+                </p>
+              </Box>
+            </Box>
+          </form>
+        </Box>
+        <Box className="img-container" sx={{ width: "100%" }}>
+          <img src="../src/assets/register.svg" alt="Login Image" />
+        </Box>
       </div>
-    </div>
+    </Box>
   );
 }
