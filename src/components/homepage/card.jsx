@@ -6,26 +6,48 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import RatingCourse from "./rating";
 
-
-export default function CourseCard() {
+export default function CourseCard({ course }) {
   const [value, setValue] = React.useState(5);
 
   return (
-    <Card sx={{ width: {xs : "250px", md : "300px"}, border : "1px solid black",margin: "auto", marginBottom : "20px"}}>
+    <Card
+      sx={{
+        width: { xs: "250px", md: "300px" },
+        border: "1px solid black",
+        margin: "auto",
+        marginBottom: "20px",
+      }}
+    >
       <CardMedia
         sx={{ height: 150 }}
-        image="../src/assets/courses/figma.jpg"
-        title="Belajar Node"
+        image={course.image}
+        title={course.title}
       />
       <CardContent sx={{}}>
-        <Typography gutterBottom variant="h5" component="div" sx={{fontWeight: 600}}>
-          Belajar NodeJS
+        <Typography
+          gutterBottom
+          variant="h5"
+          component="div"
+          sx={{ fontWeight: 600, fontSize : "20px"}}
+        >
+          {course.title}
         </Typography>
-        <Typography variant="subtitle1"sx={{fontSize:"20px"}}>Dionisius Reinaldo</Typography>
+        <Typography variant="subtitle1" sx={{ fontSize: "20px" }}>
+          Dionisius Reinaldo
+        </Typography>
         {/* tempat render rating */}
-        <RatingCourse value={value}/>
-        <Typography sx={{fontSize:"24px", marginTop: "10px", fontWeight: 600,textAlign : "left" }}>Rp.120.000</Typography>
-      
+        <RatingCourse value={value} />
+        <Typography
+          sx={{
+            fontSize: "24px",
+            marginTop: "10px",
+            fontWeight: 600,
+            textAlign: "left",
+          }}
+        >
+          {course.price}
+        </Typography>
+
         <Button
           variant="contained"
           sx={{

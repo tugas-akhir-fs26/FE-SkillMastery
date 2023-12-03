@@ -1,11 +1,12 @@
 // @ts-nocheck
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./course.module.css";
 import CourseCard from "../homepage/card";
 import { Box, Button, Typography, TextField } from "@mui/material";
 
 import Grid from "@mui/material/Grid";
 import Testimonials from "./testimonial";
+import axios from "axios";
 
 function DaftarCourse() {
   const testimonialsData = [
@@ -41,6 +42,30 @@ function DaftarCourse() {
     },
     // Add more testimonials as needed
   ];
+
+  const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [open, setOpen] = React.useState(true);
+
+  useEffect(() => {
+    // Gunakan state isLoading untuk menandakan bahwa data masih dimuat
+    setIsLoading(true);
+
+    // Ambil data dari API
+    axios
+      .get("https://skillmastery.adaptable.app/courses")
+      .then((response) => {
+        setData(response.data.data);
+        console.log(response.data.data);
+        setIsLoading(false);
+        setOpen(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        setIsLoading(false);
+      });
+  }, []);
+
   return (
     <Box sx={{ p: 5 }}>
       {/* Search */}
@@ -73,7 +98,7 @@ function DaftarCourse() {
               textTransform: "capitalize",
               fontWeight: 400,
               fontSize: "18px",
-              marginTop : {xs : "12px", md : "0"}
+              marginTop: { xs: "12px", md: "0" },
             }}
           >
             Cari
@@ -83,32 +108,23 @@ function DaftarCourse() {
 
       {/* Course List */}
       <div className={styles.container}>
-        <Box className={`${styles.courseList}`} sx={{ p: 3, marginBottom : "32px"}}>
+        <Box
+          className={`${styles.courseList}`}
+          sx={{ p: 3, marginBottom: "32px" }}
+        >
           <Grid container spacing={0}>
-            <Grid xs={12} md={3}>
-              <CourseCard />
-            </Grid>
-            <Grid xs={12} md={3}>
-              <CourseCard />
-            </Grid>
-            <Grid xs={12} md={3}>
-              <CourseCard />
-            </Grid>
-            <Grid xs={12} md={3}>
-              <CourseCard />
-            </Grid>
-            <Grid xs={12} md={3}>
-              <CourseCard />
-            </Grid>
-            <Grid xs={12} md={3}>
-              <CourseCard />
-            </Grid>
-            <Grid xs={12} md={3}>
-              <CourseCard />
-            </Grid>
-            <Grid xs={12} md={3}>
-              <CourseCard />
-            </Grid>
+            {data &&
+              data.map((course) => (
+                <Grid xs={12} md={3}>
+                  <CourseCard
+                    key={
+                      // @ts-ignore
+                      course.id
+                    }
+                    course={course}
+                  />
+                </Grid>
+              ))}
           </Grid>
         </Box>
       </div>
@@ -130,9 +146,8 @@ function DaftarCourse() {
             gap: "32px",
             justifyContent: "center",
             alignItems: "center",
-            marginBottom : "64px",
-            width : "100%",
-            
+            marginBottom: "64px",
+            width: "100%",
           }}
         >
           {/* Kalau mau ganti card, ganti dari bawah ini sampe div class card */}
