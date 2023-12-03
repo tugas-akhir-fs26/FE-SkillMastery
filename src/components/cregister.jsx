@@ -37,14 +37,15 @@ function Register() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setLoading(true);
-    if (Object.values(errors).some((error) => error !== "")) {
-      console.log("Ada field yang belum terisi");
-      return;
+
+    if (!values.name || !values.email || !values.password){
+      setSuccess(true)
+      setMessage("Name, Email, dan password diperlukan");
     }
 
     axios({
       method: "POST",
-      url: "http://localhost:3000/auth/register",
+      url: "https://skillmastery.adaptable.app/auth/register",
       data: {
         Name: values.name,
         email: values.email,

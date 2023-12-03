@@ -29,7 +29,7 @@ export default function Login() {
     console.log(values);
 
     if (!values.email || !values.password) {
-      setMessage("Email and password are required.");
+      setMessage("Email dan password kosong");
       setSuccess(true);
 
       // Reset success to false after 2 seconds
@@ -43,7 +43,7 @@ export default function Login() {
     try {
       axios({
         method: "POST",
-        url: "http://localhost:3000/auth/login",
+        url: "https://skillmastery.adaptable.app/auth/login",
         data: {
           email: values.email,
           password: values.password,
