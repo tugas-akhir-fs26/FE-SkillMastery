@@ -16,6 +16,7 @@ export default function Login() {
 
   const [errors, setErrors] = useState({});
   const [success, setSuccess] = useState(false);
+  const [message, setMessage] = useState("");
   const handleInput = (event) => {
     setValues((prev) => ({
       ...prev,
@@ -25,10 +26,17 @@ export default function Login() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // setErrors(Validation(values));
     console.log(values);
-    if (Object.values(errors).some((error) => error !== "")) {
-      console.log("Ada field yang belum terisi");
+
+    if (!values.email || !values.password) {
+      setMessage("Email and password are required.");
+      setSuccess(true);
+
+      // Reset success to false after 2 seconds
+      setTimeout(() => {
+        setSuccess(false);
+      }, 2000);
+
       return;
     }
 
@@ -43,32 +51,34 @@ export default function Login() {
       })
         .then(function (response) {
           console.log(response.data);
-
-          if (response.data.ok === false) {
-            alert("Invalid username or password");
-            return;
-          }
-
+          setMessage(response.data.message);
           setSuccess(true);
           setValues({
             email: "",
             password: "",
           });
 
+          setTimeout(() => {
+            setSuccess(false);
+          }, 2000);
           // Simpan token di localStorage
           localStorage.setItem("token", response.data.token);
         })
         .catch(function (error) {
-          console.log(error);
+          setSuccess(true);
+          setMessage(error.response?.data.message || "An error occurred");
+
+          setTimeout(() => {
+            setSuccess(false);
+          }, 2000);
         });
     } catch (error) {
       console.error("Error during fetch:", error);
     }
   };
-
   return (
     <Box>
-      {success ? <ModalSuccess open={success} /> : ""}
+      {success ? <ModalSuccess open={success} message={message} /> : ""}
       <Box className="body">
         <div className="container">
           <Box

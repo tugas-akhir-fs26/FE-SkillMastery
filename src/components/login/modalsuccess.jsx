@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import Snackbar from "@mui/material/Snackbar";
@@ -10,7 +11,11 @@ export default function ModalSuccess(props) {
   useEffect(() => {
     if (props.open === true) {
       setOpen(true);
+    }
+  }, [props.open]);
 
+  useEffect(() => {
+    if (open) {
       // Menutup Snackbar otomatis setelah 2 detik
       const timeoutId = setTimeout(() => {
         handleClose();
@@ -19,7 +24,7 @@ export default function ModalSuccess(props) {
       // Membersihkan timeout saat komponen dilepas (unmounted)
       return () => clearTimeout(timeoutId);
     }
-  }, [props.open]);
+  }, [open]);
 
   const handleClose = () => {
     setOpen(false);
@@ -33,8 +38,8 @@ export default function ModalSuccess(props) {
         onClose={handleClose}
         key={vertical + horizontal}
       >
-        <Alert severity="success" sx={{ width: "100%" }}>
-          Login Berhasil!
+        <Alert severity="info" sx={{ width: "100%" }}>
+          {props.message}
         </Alert>
       </Snackbar>
     </Box>

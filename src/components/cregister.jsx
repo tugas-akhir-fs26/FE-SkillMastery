@@ -2,11 +2,17 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../css/register.css";
 import axios from "axios";
-import Validation from "./cregistervalidation";
-import SVGImage from "./images/register.svg";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
-import { Alert, Backdrop, CircularProgress } from "@mui/material";
+import {
+  Alert,
+  Backdrop,
+  Box,
+  CircularProgress,
+  TextField,
+  Typography,
+} from "@mui/material";
+import ModalSuccess from "./login/modalsuccess";
 
 function Register() {
   const navigate = useNavigate();
@@ -19,7 +25,8 @@ function Register() {
     password: "",
   });
 
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState(false);
+  const [success, setSuccess] = useState(false);
   const handleInput = (event) => {
     setValues((prev) => ({
       ...prev,
@@ -35,140 +42,200 @@ function Register() {
       return;
     }
 
+    axios({
+      method: "POST",
+      url: "http://localhost:3000/auth/register",
+      data: {
+        Name: values.name,
+        email: values.email,
+        password: values.password,
+      },
+    })
+      .then(function (response) {
 
-    try {
-      const response = await axios.post(
-        "https://skillmastery.adaptable.app/auth/register",
-        {
-          Name: values.name,
-          email: values.email,
-          password: values.password,
+        if (response.data.ok === false) {
+          setLoading(false);
+          setErrors(true);
+          setMessage(response.data.message)
+          setValues({
+            name: "",
+            email: "",
+            password: "",
+          });
+          return;
         }
-      );
-
-      if (response.status >= 200 && response.status < 300) {
-        setOpen(false);
         setLoading(false);
-        setMessage(response.data.message);
+        setSuccess(true)
+        setMessage(response.data.message)
         setValues({
-          name : "",
-          email : "",
-          password : ""
-        })
-      }
-    } catch (error) {
-      console.error("Error during fetch:", error);
-    }
+          name: "",
+          email: "",
+          password: "",
+        });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 
   return (
-    <div className="body">
-      <div className="container">
-        <div className="register-container">
-          <div className="register-form">
-            <h1 className="logo-title">
-              <span>Skill</span>
-              <span>Mastery</span>
-            </h1>
-            <form
-              id="regis-form"
-              onSubmit={handleSubmit}
-              style={{ position: "relative" }}
-            >
-              {loading ? (
-                <Backdrop
+    <Box>
+      {errors ? (
+        <Alert severity="error">This is an error alert — check it out!</Alert>
+      ) : (
+        ""
+      )}
+      {loading ? (
+        <Backdrop
+          sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+          open={open}
+        >
+          <CircularProgress color="inherit" />
+        </Backdrop>
+      ) : (
+        ""
+      )}
+      {success ? <ModalSuccess open={success} message={message} /> : ""}
+      <Box className="body">
+        <div className="container">
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              p: 2,
+            }}
+          >
+            {/* Header */}
+            <Box sx={{ display: "flex", flexDirection: "column" }}>
+              {/* logo skillmastery */}
+              <Box sx={{ display: "flex" }}>
+                <Typography
+                  variant="h5"
                   sx={{
-                    color: "#fff",
-                    zIndex: (theme) => theme.zIndex.drawer + 1,
+                    color: "#0460D9",
+                    fontWeight: 700,
+                    fontSize: "48px",
+                    textTransform: "capitalize",
                   }}
-                  open={open}
                 >
-                  <CircularProgress color="inherit" />
-                </Backdrop>
-              ) : (
-                ""
-              )}
-              <div className="input-form">
-                <label htmlFor="name"></label>
-                <input
-                  type="text"
-                  id="name"
-                  placeholder="Nama"
+                  Skill
+                </Typography>
+                <Typography
+                  variant="h5"
+                  sx={{
+                    color: "black",
+                    fontWeight: 700,
+                    fontSize: "48px",
+                    textTransform: "capitalize",
+                  }}
+                >
+                  Mastery
+                </Typography>
+              </Box>
+              <Typography>Selamat datang di halaman Register</Typography>
+            </Box>
+            <form>
+              <Box
+                className="input-form"
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: { xs: "32px", md: "24px" },
+                  width: { xs: "300px", md: "450px" },
+                  height: { xs: "100vh", md: "100%" },
+                  p: 3,
+                  marginTop: "24px",
+                  alignItems: "center",
+                }}
+              >
+                <TextField
+                  id="outlined-basic"
+                  label="Nama"
                   name="name"
+                  type="text"
+                  variant="outlined"
+                  onChange={handleInput}
+                  sx={{ width: "100%" }}
                   value={values.name}
-                  onChange={handleInput}
                 />
-                <div className="textalert">
-                  {errors.name && <span>{errors.name}</span>}
-                </div>
-              </div>
-              <div className="input-form">
-                <label htmlFor="email"></label>
-                <input
-                  type="email"
-                  id="email"
-                  placeholder="Email"
+                <TextField
+                  id="outlined-basic"
+                  label="Email"
                   name="email"
-                  value={values.email}
+                  type="email"
+                  variant="outlined"
                   onChange={handleInput}
+                  sx={{ width: "100%" }}
+                  value={values.email}
                 />
-                <div className="textalert">
-                  {errors.email && <span>{errors.email}</span>}
-                </div>
-              </div>
-              <div className="input-form">
-                <div className="input-password">
-                  <label htmlFor="password"></label>
-                  <input
-                    type="password"
-                    id="password"
-                    placeholder="Password"
-                    name="password"
-                    value={values.password}
-                    onChange={handleInput}
-                  />
-                  <div>
-                    {errors.password && (
-                      <span className="textalert">{errors.password}</span>
-                    )}
-                  </div>
-                </div>
-              </div>
-              <div className="button">
-                <Stack spacing={2} direction="row">
-                  <Button variant="contained" onClick={handleSubmit}>
-                    Daftar
-                  </Button>
-                </Stack>
-              </div>
-            </form>
-            <p
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              Sudah Punya Akun?
-              <Stack spacing={2} direction="row">
-                <Button
-                  variant="text"
-                  onClick={() => {
-                    navigate("/login");
+                <TextField
+                  id="outlined-basic"
+                  label="Password"
+                  name="password"
+                  type="password"
+                  variant="outlined"
+                  onChange={handleInput}
+                  sx={{ width: "100%" }}
+                  value={values.password}
+                />
+
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
                   }}
-                  sx={{ textTransform: "capitalize", fontSize : "18px", color : "#0460D9" }}
                 >
-                  Login
-                </Button>
-              </Stack>
-            </p>
-          </div>
+                  <Stack spacing={2} direction="row">
+                    <Button
+                      sx={{
+                        textTransform: "capitalize",
+                        px: 5,
+                        fontWeight: 400,
+                        fontSize: "18px",
+                      }}
+                      variant="contained"
+                      onClick={handleSubmit}
+                    >
+                      Masuk
+                    </Button>
+                  </Stack>
+                  <p
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    Sudah Punya Akun?
+                    <Stack spacing={2} direction="row">
+                      <Button
+                        variant="text"
+                        onClick={() => {
+                          navigate("/login");
+                        }}
+                        sx={{
+                          textTransform: "capitalize",
+                          fontSize: "18px",
+                          color: "#0460D9",
+                        }}
+                      >
+                        Login
+                      </Button>
+                    </Stack>
+                  </p>
+                </Box>
+              </Box>
+            </form>
+          </Box>
+          <Box className="img-container" sx={{ width: "100%" }}>
+            <img src="../src/assets/register.svg" alt="Login Image" />
+          </Box>
         </div>
-        <div className="img-container">
-          <img src={SVGImage} />
-        </div>
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 }
 
