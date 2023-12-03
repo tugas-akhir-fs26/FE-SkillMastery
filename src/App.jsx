@@ -20,6 +20,7 @@ import Instruktur from './pages/instruktur';
 import React from 'react';
 import CourseDetail from './pages/courseDetail';
 import Login from './components/login/login';
+import ProfileUser from './components/profil-user/profil';
 
 const theme = createTheme({
   typography: {
