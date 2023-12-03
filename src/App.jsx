@@ -1,3 +1,4 @@
+
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/navbar/navbar';
 import Home from './pages/home';
@@ -50,10 +51,11 @@ function App() {
         <Route path="/instruktur" element={<Instruktur />} />
         <Route path="/course-detail" element={<CourseDetail />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/profil-user" element={<ProfileUser/>} />
       </Routes>
       <Footer />
     </ThemeProvider>
   );
 }
 
-export default App;
+export default App;;
