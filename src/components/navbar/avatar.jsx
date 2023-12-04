@@ -48,8 +48,6 @@ const CustomAvatar = ({
 
     if (setting === "Profile") {
       navigate("/profile-user");
-    } else if (setting === "Dashboard") {
-      navigate("/dashboard-user");
     } else if (setting === "Logout") {
       handleClickOpen();
     }

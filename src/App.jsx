@@ -20,6 +20,7 @@ import CourseDetail from './pages/courseDetail';
 import Login from './components/login/login';
 import ProfileUser from './components/profil-user/profil';
 import DashboardMentor from './pages/dashboardhome';
+import CourseUser from './components/dashboard-user/dashboard';
 
 const theme = createTheme({
   typography: {
@@ -51,6 +52,7 @@ function App() {
         <Route path="/course-detail" element={<CourseDetail />} />
         <Route path="/login" element={<Login />} />
         <Route path="/profile-user" element={<ProfileUser/>} />
+        <Route path="/my-course" element={<CourseUser/>} />
       </Routes>
     </ThemeProvider>
   );

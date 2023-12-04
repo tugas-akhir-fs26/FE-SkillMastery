@@ -14,7 +14,7 @@ import Logo from "./button-logo";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 const pages = ["course", "workshop", "instruktur"];
-const settings = ["Profile", "Dashboard", "Logout"];
+const settings = ["Profile", "Logout"];
 
 function Navbar() {
   const navigate = useNavigate();
