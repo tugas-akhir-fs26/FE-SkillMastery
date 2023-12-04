@@ -6,10 +6,13 @@ import Paper from '@mui/material/Paper';
 import { StyledEngineProvider } from '@mui/material/styles';
 import MoneyReport from './moneyreport';
 import MoneyChart from './moneychart';
+import Navbar from '../components/navbar/navbar';
+import Footer from '../components/footer/footer';
 
 export default function Home() {
   return (
     <>
+    <Navbar />
       <StyledEngineProvider injectFirst>
         <Box sx={{ display: 'flex' }}>
           <SideBar />
@@ -41,6 +44,7 @@ export default function Home() {
           </Box>
         </Box>
       </StyledEngineProvider>
+      <Footer />
     </>
   );
 }

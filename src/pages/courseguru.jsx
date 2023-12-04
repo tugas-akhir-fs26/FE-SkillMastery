@@ -8,11 +8,14 @@ import Typography from '@mui/material/Typography';
 import AddCircleOutline from '@mui/icons-material/AddCircleOutline';
 import CourseTable from './coursetable';
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../components/navbar/navbar';
+import Footer from '../components/footer/footer';
 
 export default function Course() {
   const navigate = useNavigate();
   return (
     <>
+    <Navbar />
       <Box sx={{ display: 'flex' }}>
         <SideBar />
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
@@ -35,6 +38,7 @@ export default function Course() {
           </div>
         </Box>
       </Box>
+      <Footer />
     </>
   );
 }

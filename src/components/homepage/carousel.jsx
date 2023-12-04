@@ -67,7 +67,7 @@ export default function CarouselCourse() {
   return (
     <div className={`${Style.card_wrapper}`}>
       {isLoading ? (
-        <Alert severity="info">Sedang mengambil data</Alert>
+        <Alert severity="info">Loading...</Alert>
       ) : (
         <Slider {...settings}>
           {/* render card course */}

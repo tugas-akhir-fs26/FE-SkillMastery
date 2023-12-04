@@ -35,7 +35,6 @@ const theme = createTheme({
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
@@ -54,7 +53,6 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/profil-user" element={<ProfileUser/>} />
       </Routes>
-      <Footer />
     </ThemeProvider>
   );
 }

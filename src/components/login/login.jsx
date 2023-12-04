@@ -6,8 +6,12 @@ import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import { Box, TextField, Typography } from "@mui/material";
 import ModalSuccess from "./modalsuccess";
+import { useDispatch } from "react-redux";
+import {loginAction} from '../../redux/reducers/auth.reducer'
 
 export default function Login() {
+  const dispatch = useDispatch();
+
   const navigate = useNavigate();
   const [values, setValues] = useState({
     email: "",
@@ -26,7 +30,6 @@ export default function Login() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(values);
 
     if (!values.email || !values.password) {
       setMessage("Email dan password kosong");
@@ -37,6 +40,7 @@ export default function Login() {
         setSuccess(false);
       }, 2000);
 
+      
       return;
     }
 
@@ -63,6 +67,8 @@ export default function Login() {
           }, 2000);
           // Simpan token di localStorage
           localStorage.setItem("token", response.data.token);
+          dispatch(loginAction());
+          navigate('/')
         })
         .catch(function (error) {
           setSuccess(true);

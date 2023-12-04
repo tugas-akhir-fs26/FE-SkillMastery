@@ -1,10 +1,12 @@
-// @ts-nocheck
+
 import Box from "@mui/material/Box";
 import React from "react";
 import { Typography, Button } from "@mui/material";
 import CarouselCourse from "./carousel";
+import { useNavigate } from "react-router-dom";
 
 export default function CourseSection() {
+  const navigate = useNavigate();
   return (
     <Box
       sx={{
@@ -49,6 +51,7 @@ export default function CourseSection() {
             backgroundColor: "#0460D9",
             fontWeight : 400,
           }}
+          onClick={()=> (navigate('/course'))}
         >
           Semua Course
         </Button>
@@ -56,3 +59,4 @@ export default function CourseSection() {
     </Box>
   );
 }
+
