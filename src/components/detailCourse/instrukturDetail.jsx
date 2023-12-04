@@ -1,7 +1,29 @@
+// @ts-nocheck
 import { Avatar, Box, Typography } from "@mui/material";
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 
-export default function DetailInstruktur() {
+export default function DetailInstruktur({ data }) {
+  const [dataMentor, setDataMentor] = useState({});
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // Pastikan data dan data.Mentor tidak undefined sebelum mengakses id
+        if (data && data.Mentor && data.Mentor.id) {
+          const response = await axios.get(
+            `http://localhost:3000/mentors/${data.Mentor.id}`
+          );
+          setDataMentor(response.data.data[0]);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData();
+  }, [data]);
+
   return (
     <Box>
       <Typography
@@ -13,28 +35,17 @@ export default function DetailInstruktur() {
       >
         Tentang Mentor
       </Typography>
-      <Box sx={{ display: "flex", alignItems: "center", gap: "20px", p:2}}>
-        <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-
+      <Box sx={{ display: "flex", alignItems: "center", gap: "20px", p: 2 }}>
+        <Avatar alt="Remy Sharp" src={dataMentor?.User?.avatar} />
         <Box>
-          <Typography sx={{fontSize : "24px", fontWeight : 600}}>M Farel</Typography>
+          <Typography sx={{ fontSize: "24px", fontWeight: 600 }}>
+            {dataMentor?.User?.Name}
+          </Typography>
         </Box>
       </Box>
       <ul>
-        <li style={{listStyleType : "none"}}>
-          Sebagai seorang instruktur, saya berkomitmen untuk memandu siswa dalam
-          perjalanan mereka memahami dan menguasai dunia pengembangan web. Saya
-          percaya bahwa keterampilan pengembangan web adalah salah satu kunci
-          keberhasilan dalam era digital ini, dan saya bersemangat untuk
-          membagikan pengetahuan dan pengalaman saya kepada siswa-siswa saya.
-          Dengan pengalaman praktis dalam pengembangan web, saya telah bekerja
-          pada berbagai proyek yang melibatkan teknologi terbaru, termasuk HTML,
-          CSS, JavaScript, kerangka kerja (frameworks) front-end seperti React
-          dan Angular, serta bahasa pemrograman back-end seperti Node.js,
-          Python, atau Ruby on Rails. Saya memiliki keahlian dalam merancang dan
-          mengembangkan aplikasi web responsif, menciptakan antarmuka pengguna
-          yang menarik, dan memecahkan tantangan teknis yang mungkin muncul
-          selama proses pengembangan.
+        <li style={{ listStyleType: "none" }}>
+          {dataMentor?.Mentor_Profile?.bio}
         </li>
       </ul>
     </Box>

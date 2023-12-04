@@ -5,8 +5,10 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import RatingCourse from "./rating";
+import { useNavigate } from "react-router-dom";
 
 export default function CourseCard({ course }) {
+  const navigate = useNavigate();
   const [value, setValue] = React.useState(5);
 
   return (
@@ -57,6 +59,9 @@ export default function CourseCard({ course }) {
             fontSize: "16px",
             fontWeight: 400,
             marginTop: "16px",
+          }}
+          onClick={() => {
+            navigate(`/course-detail?id=${course.id}`);
           }}
         >
           Detail Course
