@@ -9,10 +9,8 @@ import Payment from './pages/payment';
 import CreateCourse from './pages/createcourse';
 import { createTheme, ThemeProvider } from '@mui/material';
 import './app.css';
-import Footer from './components/footer/footer';
 import Register from './pages/register';
 import DaftarWorkshop from './pages/daftarworkshop';
-import HomeDashboard from './pages/dashboardhome';
 import CourseGuru from './pages/courseguru';
 import Forum from './pages/forum';
 import Setting from './pages/setting';
@@ -21,6 +19,7 @@ import React from 'react';
 import CourseDetail from './pages/courseDetail';
 import Login from './components/login/login';
 import ProfileUser from './components/profil-user/profil';
+import DashboardMentor from './pages/dashboardhome';
 
 const theme = createTheme({
   typography: {
@@ -44,14 +43,14 @@ function App() {
         <Route path="/daftarworkshop" element={<DaftarWorkshop />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="/create-course" element={<CreateCourse />} />
-        <Route path="/dashboard-home" element={<HomeDashboard />}></Route>
+        <Route path="/dashboard-mentor" element={<DashboardMentor />}></Route>
         <Route path="/course-guru" element={<CourseGuru />}></Route>
         <Route path="/forum" element={<Forum />}></Route>
         <Route path="/setting" element={<Setting />}></Route>
         <Route path="/instruktur" element={<Instruktur />} />
         <Route path="/course-detail" element={<CourseDetail />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/profil-user" element={<ProfileUser/>} />
+        <Route path="/profile-user" element={<ProfileUser/>} />
       </Routes>
     </ThemeProvider>
   );

@@ -7,7 +7,7 @@ import Button from "@mui/material/Button";
 import { Box, TextField, Typography } from "@mui/material";
 import ModalSuccess from "./modalsuccess";
 import { useDispatch } from "react-redux";
-import {loginAction} from '../../redux/reducers/auth.reducer'
+import {loginAction, setAvatarAction} from '../../redux/reducers/auth.reducer'
 
 export default function Login() {
   const dispatch = useDispatch();
@@ -47,7 +47,7 @@ export default function Login() {
     try {
       axios({
         method: "POST",
-        url: "https://skillmastery.adaptable.app/auth/login",
+        url: "http://localhost:3000/auth/login",
         data: {
           email: values.email,
           password: values.password,
@@ -68,6 +68,7 @@ export default function Login() {
           // Simpan token di localStorage
           localStorage.setItem("token", response.data.token);
           dispatch(loginAction());
+          dispatch(setAvatarAction(response.data.Avatar));
           navigate('/')
         })
         .catch(function (error) {

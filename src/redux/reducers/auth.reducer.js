@@ -2,6 +2,7 @@
 
 const initialState = {
     isLogin: false,
+    avatar: null,
     // ... state lain yang berhubungan dengan autentikasi
   };
   
@@ -11,7 +12,8 @@ const initialState = {
         return { ...state, isLogin: true };
       case "LOGOUT":
         return { ...state, isLogin: false };
-      // ... penanganan aksi autentikasi lainnya
+      case "Avatar" :
+        return {...state, avatar : action.payload}
       default:
         return state;
     }
@@ -20,5 +22,5 @@ const initialState = {
   // Action Creators
   export const loginAction = () => ({ type: "LOGIN" });
   export const logoutAction = () => ({ type: "LOGOUT" });
-  // ... action creators lainnya
+  export const setAvatarAction = (avatar) => ({ type: "Avatar", payload: avatar });
   

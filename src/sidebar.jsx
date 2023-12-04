@@ -110,11 +110,11 @@ export default function SideBar() {
               display: 'block',
             }}
             onClick={() => {
-              navigate('/dashboard-home');
+              navigate('/dashboard-mentor');
             }}
           >
             <ListItemButton
-              selected={activeItem === '/dashboard-home'}
+              selected={activeItem === '/dashboard-mentor'}
               sx={{
                 minHeight: 48,
                 justifyContent: open ? 'initial' : 'center',

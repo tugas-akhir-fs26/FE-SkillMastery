@@ -15,7 +15,6 @@ export default function Course() {
   const navigate = useNavigate();
   return (
     <>
-    <Navbar />
       <Box sx={{ display: 'flex' }}>
         <SideBar />
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
@@ -38,7 +37,6 @@ export default function Course() {
           </div>
         </Box>
       </Box>
-      <Footer />
     </>
   );
 }

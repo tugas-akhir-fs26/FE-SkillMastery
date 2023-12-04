@@ -7,7 +7,7 @@ import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Typography from "@mui/material/Typography";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logoutAction } from "../../redux/reducers/auth.reducer.js";
 import {
   Button,
@@ -17,6 +17,7 @@ import {
   DialogContentText,
   DialogActions,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const CustomAvatar = ({
   handleOpenUserMenu,
@@ -25,7 +26,9 @@ const CustomAvatar = ({
   settings,
 }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [open, setOpen] = React.useState(false);
+  const avatar = useSelector((state) => state.auth.avatar) || "/static/images/avatar/2.jpg";
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -40,11 +43,23 @@ const CustomAvatar = ({
     dispatch(logoutAction());
   };
 
+  function handleMenuItemClick(setting) {
+    handleCloseUserMenu();
+
+    if (setting === "Profile") {
+      navigate("/profile-user");
+    } else if (setting === "Dashboard") {
+      navigate("/dashboard-user");
+    } else if (setting === "Logout") {
+      handleClickOpen();
+    }
+  }
+
   return (
     <>
       <Tooltip title="Open settings">
         <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-          <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+          <Avatar alt="Remy Sharp" src={avatar} />
         </IconButton>
       </Tooltip>
       <Menu
@@ -66,9 +81,7 @@ const CustomAvatar = ({
         {settings.map((setting) => (
           <MenuItem
             key={setting}
-            onClick={
-              setting === "Logout" ? handleClickOpen : handleCloseUserMenu
-            }
+            onClick={() => handleMenuItemClick(setting)}
           >
             <Typography textAlign="center">{setting}</Typography>
           </MenuItem>
