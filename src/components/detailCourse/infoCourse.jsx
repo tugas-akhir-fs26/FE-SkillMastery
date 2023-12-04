@@ -14,7 +14,7 @@ import DetailInstruktur from "./instrukturDetail";
 import Curiculum from "./curiculum";
 import Style from './courseDetail.module.css'
 
-function InfoCourse() {
+function InfoCourse({data}) {
   const [alignment, setAlignment] = useState("All");
 
   const handleChange = (event, newAlignment) => {
@@ -34,7 +34,7 @@ function InfoCourse() {
               display: "flex",
             }}
           >
-            <Curiculum />
+            <Curiculum data={data}/>
           </Box>
         );
       case "Description":
@@ -48,7 +48,7 @@ function InfoCourse() {
               width:{ xs : "70vw",md: "50vw"},
             }}
           >
-            <DescriptionCourse />
+            <DescriptionCourse data={data} />
           </Box>
         );
       case "Mentor":
@@ -62,12 +62,11 @@ function InfoCourse() {
               width:{ xs : "70vw",md: "50vw"},
             }}
           >
-            <DetailInstruktur />
+            <DetailInstruktur data={data}/>
           </Box>
         );
-      case "All":
       default:
-        // Menampilkan semua konten
+        // Menampilkan semua konten secara default
         return (
           <>
             <Box
@@ -79,7 +78,7 @@ function InfoCourse() {
                 width:{ xs : "70vw",md: "50vw"},
               }}
             >
-              <Curiculum />
+              <Curiculum data={data}/>
             </Box>
             <Box
               sx={{
@@ -90,7 +89,7 @@ function InfoCourse() {
                 width:{ xs : "70vw",md: "50vw"},
               }}
             >
-              <DescriptionCourse />
+              <DescriptionCourse data={data} />
             </Box>
             <Box
               sx={{
@@ -101,7 +100,7 @@ function InfoCourse() {
                 width:{ xs : "70vw",md: "50vw"},
               }}
             >
-              <DetailInstruktur />
+              <DetailInstruktur data={data}/>
             </Box>
           </>
         );
@@ -122,7 +121,7 @@ function InfoCourse() {
           justifyContent : "center"
         }}
       >
-        <img src="../src/assets/courses/figma.jpg" alt="" className={Style.img_cart}/>
+        <img src={data.image} alt={data.title} className={Style.img_cart}/>
         <Box>
           <Typography
             variant="h2"
@@ -130,7 +129,7 @@ function InfoCourse() {
             id="judul-course"
             sx={{ fontWeight: 600, fontSize: "32px" }}
           >
-            HTML for Beginner
+            {data.title}
           </Typography>
           <Typography
             variant="h5"
@@ -138,7 +137,7 @@ function InfoCourse() {
             id="judul-course"
             sx={{ fontWeight: 400, fontSize: "20px", opacity: "60%" }}
           >
-            Dionisius Reinaldo
+          {data.Mentor?.User?.Name}
           </Typography>
 
           <Typography
@@ -147,7 +146,7 @@ function InfoCourse() {
             id="judul-course"
             sx={{ fontWeight: 400, fontSize: "20px", marginTop: "20px" }}
           >
-            Pelajari cara membuat website sederhana dari pemula sampai mahir
+            {data.short_desc}
           </Typography>
 
           <Box

@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
 
-export default function DescriptionCourse() {
+export default function DescriptionCourse({data}) {
   return (
     <Box>
       <Typography
@@ -16,15 +16,7 @@ export default function DescriptionCourse() {
 
       <ul>
         <li style={{listStyleType : "none"}}>
-          Kelas web developer akan membawa Anda ke dalam dunia pembuatan situs
-          web modern. Anda akan mempelajari HTML, CSS, JavaScript, dan banyak
-          lagi. Kelas ini akan membantu Anda memahami konsep dasar dan canggih
-          dalam pengembangan web. Kenapa kamu mengambil kelas ini? Jika Anda
-          tertarik untuk membangun situs web yang menarik dan fungsional, kelas
-          ini akan membantu Anda menguasai keterampilan yang diperlukan. Kelas
-          ini dibuat untuk siapa saja Orang yang ingin menjadi web developer,
-          pemilik bisnis yang ingin memahami pengembangan web, atau siapa pun
-          yang ingin memulai karir di dunia pemrograman web.
+          {data?.description}
         </li>
       </ul>
     </Box>

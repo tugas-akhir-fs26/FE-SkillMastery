@@ -1,4 +1,3 @@
-// @ts-nocheck
 import {
   Accordion,
   AccordionDetails,
@@ -6,10 +5,26 @@ import {
   Box,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-export default function Curiculum() {
+export default function Curiculum({ data }) {
+  const [datas, setDatas] = useState();
+
+  useEffect(() => {
+    if (data && data.Contents && data.Contents.length > 0) {
+      try {
+        const jsonString = data.Contents[0].section;
+        // Menghapus karakter ganda (") di awal dan akhir string
+        const trimmedJsonString = jsonString.trim().slice(1, -1);
+        const parsedSections = JSON.parse(trimmedJsonString);
+        setDatas(parsedSections)
+      } catch (error) {
+        console.error("Error parsing JSON:", error);
+      }
+    }
+  }, [data]);
+
   return (
     <Box sx={{ p: 2 }}>
       <Typography
@@ -26,60 +41,27 @@ export default function Curiculum() {
         sx={{
           fontSize: "18px",
           fontWeight: "400",
-          opacity : "60%"
+          opacity: "60%",
         }}
       >
         Yang akan anda pelajari dalam course ini
       </Typography>
       <Box sx={{ p: 1 }}>
-        <Accordion disabled>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel3a-content"
-            id="panel3a-header"
-          >
-            <Typography>Section 1</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-              eget.
-            </Typography>
-          </AccordionDetails>
-        </Accordion>
-        <Accordion disabled>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel3a-content"
-            id="panel3a-header"
-          >
-            <Typography>Section 1</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-              eget.
-            </Typography>
-          </AccordionDetails>
-        </Accordion>
-        <Accordion disabled>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel3a-content"
-            id="panel3a-header"
-          >
-            <Typography>Section 1</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-              eget.
-            </Typography>
-          </AccordionDetails>
-        </Accordion>
+        {datas &&
+          datas.map((section, index) => (
+            <Accordion key={index} disabled>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls={`panel${index + 1}-content`}
+                id={`panel${index + 1}-header`}
+              >
+                <Typography>{section.id}</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography>{section.content}</Typography>
+              </AccordionDetails>
+            </Accordion>
+          ))}
       </Box>
     </Box>
   );

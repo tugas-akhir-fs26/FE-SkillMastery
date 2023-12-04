@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./course.module.css";
 import CourseCard from "../homepage/card";
+import Pagination from "@mui/material/Pagination";
 import { Box, Button, Typography, TextField } from "@mui/material";
 
 import Grid from "@mui/material/Grid";
@@ -46,25 +47,37 @@ function DaftarCourse() {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [open, setOpen] = React.useState(true);
+  const [totalPage, setTotalPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [searchKeyword, setSearchKeyword] = useState("");
+
+  // Handler untuk mengubah nilai pencarian saat input berubah
+  const handleSearchChange = (event) => {
+    setSearchKeyword(event.target.value);
+  };
+  const handlePageChange = (event, value) => {
+    setCurrentPage(value);
+  };
 
   useEffect(() => {
-    // Gunakan state isLoading untuk menandakan bahwa data masih dimuat
     setIsLoading(true);
 
-    // Ambil data dari API
     axios
-      .get("https://skillmastery.adaptable.app/courses")
+      .get(
+        `https://skillmastery.adaptable.app/courses/course?search=${searchKeyword}&page=${currentPage}`
+      )
       .then((response) => {
         setData(response.data.data);
-        console.log(response.data.data);
+        console.log(response.data);
         setIsLoading(false);
         setOpen(false);
+        setTotalPage(response.data.totalPage);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
         setIsLoading(false);
       });
-  }, []);
+  }, [currentPage, searchKeyword]);
 
   return (
     <Box sx={{ p: 5 }}>
@@ -87,6 +100,8 @@ function DaftarCourse() {
             id="outlined-basic"
             label="Cari Kelas"
             variant="outlined"
+            value={searchKeyword}
+            onChange={handleSearchChange}
             // className={`${Styles.search}`}
             sx={{ width: "60vw", marginRight: "16px" }}
             size="small"
@@ -110,7 +125,7 @@ function DaftarCourse() {
       <div className={styles.container}>
         <Box
           className={`${styles.courseList}`}
-          sx={{ p: 3, marginBottom: "32px" }}
+          sx={{ p: 3, marginBottom: "32px", height : "100%" }}
         >
           <Grid container spacing={0}>
             {data &&
@@ -126,13 +141,25 @@ function DaftarCourse() {
                 </Grid>
               ))}
           </Grid>
+
+          <Box
+            sx={{ display: "flex", alignItems: "center", marginTop: "12px" }}
+          >
+            <Pagination
+              count={totalPage}
+              page={currentPage}
+              shape="rounded"
+              onChange={handlePageChange}
+              sx={{ margin: "auto", textAlign: "center" }}
+            />
+          </Box>
         </Box>
       </div>
 
       {/* Testimonials */}
       <Box
         className={`${styles.container} ${styles.faq}`}
-        sx={{ marginTop: "32px" }}
+        sx={{ marginTop: "32px", height : "100vh" }}
       >
         <center>
           <h1>FAQ</h1>
