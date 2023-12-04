@@ -11,15 +11,19 @@ import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import CustomAvatar from "./avatar";
 import Logo from "./button-logo";
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 const pages = ["course", "workshop", "instruktur"];
-const settings = ["Profile", "Dashboard", "Logout"];
+const settings = ["Profile", "Logout"];
 
 function Navbar() {
+  const navigate = useNavigate();
+
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-  const [isLogin, setIsLogin] = React.useState(false);
+
+  const dispatch = useDispatch();
+  const isLogin = useSelector((state) => state.auth.isLogin);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -37,7 +41,10 @@ function Navbar() {
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: "white", py: 1, width : "100%", px : 1}}>
+    <AppBar
+      position="static"
+      sx={{ backgroundColor: "white", py: 1, width: "100%", px: 1 }}
+    >
       <Container maxWidth="xl">
         <Toolbar
           disableGutters
@@ -94,24 +101,6 @@ function Navbar() {
               ))}
             </Menu>
           </Box>
-          {/* <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
-            sx={{
-              mr: 2,
-              display: { xs: "flex", md: "none" },
-              flexGrow: 1,
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".4rem",
-              color: "black",
-              textDecoration: "none",
-            }}
-          >
-            SkillMastery
-          </Typography> */}
           <Box
             sx={{
               display: "flex",
@@ -166,16 +155,33 @@ function Navbar() {
                   width: "170px",
                   display: "flex",
                   justifyContent: "space-between",
-                  fontSize: "24px"
+                  fontSize: "24px",
                 }}
               >
                 <Button
                   variant="contained"
-                  sx={{ backgroundColor: "#0460D9", color: "white", textTransform : "capitalize", fontSize: "16px", fontWeight:400 }}
+                  sx={{
+                    backgroundColor: "#0460D9",
+                    color: "white",
+                    textTransform: "capitalize",
+                    fontSize: "16px",
+                    fontWeight: 400,
+                  }}
+                  onClick={() => navigate("/login")}
                 >
                   Masuk
                 </Button>
-                <Button variant="outlined" sx={{ textTransform : "capitalize",  fontSize: "16px", fontWeight:400}}>Daftar</Button>
+                <Button
+                  variant="outlined"
+                  sx={{
+                    textTransform: "capitalize",
+                    fontSize: "16px",
+                    fontWeight: 400,
+                  }}
+                  onClick={() => navigate("/register")}
+                >
+                  Daftar
+                </Button>
               </Box>
             )}
           </Box>

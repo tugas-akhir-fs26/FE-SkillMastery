@@ -84,8 +84,8 @@ function DaftarCourse() {
       {/* Search */}
       <Box className={styles.container} sx={{ p: 3 }}>
         <h1>
-          Temukan wawasan baru di
-          <b>
+          Temukan wawasan baru di 
+          <b style={{marginLeft : "5px"}}>
             Skill<span className={styles.mastery}>Mastery</span>
           </b>
         </h1>

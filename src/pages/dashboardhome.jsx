@@ -7,7 +7,7 @@ import { StyledEngineProvider } from '@mui/material/styles';
 import MoneyReport from './moneyreport';
 import MoneyChart from './moneychart';
 
-export default function Home() {
+export default function DashboardMentor() {
   return (
     <>
       <StyledEngineProvider injectFirst>
