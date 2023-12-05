@@ -54,7 +54,6 @@ export default function Login() {
         },
       })
         .then(function (response) {
-          console.log(response.data);
           setMessage(response.data.message);
           setSuccess(true);
           setValues({

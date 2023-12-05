@@ -34,17 +34,18 @@ export default function CartCourse({ data }) {
     try {
       const token = localStorage.getItem("token"); // Assuming you stored the token with key "token"
       setOpen(false);
-      setDelete(true);
+      
       setTimeout(() => setDelete(false), 2000);
 
-      axios.delete(`http://localhost:3000/cart/${id}`, {
+      axios.delete(`http://localhost:3000/cart/course/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
     } catch (error) {
-      console.error("Error fetching data:", error);
+      console.log("Error fetching data:", error);
     }
+    setDelete(true);
   }
 
   return (
@@ -66,7 +67,7 @@ export default function CartCourse({ data }) {
           alt="web"
           className={`${Style.img_cart}`}
         />
-        <Box>
+        <Box sx={{ p : 2}}>
           <Typography
             sx={{
               fontWeight: 600,
@@ -81,6 +82,8 @@ export default function CartCourse({ data }) {
               opacity: "70%",
               fontSize: { xs: "12px", md: "14px" },
               marginBottom: "16px",
+              textAlign : "left",
+             
             }}
           >
             {data?.Course.short_desc}

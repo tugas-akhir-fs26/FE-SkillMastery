@@ -4,6 +4,7 @@ import Style from "./courseDetail.module.css";
 import axios from "axios";
 
 export default function CardDetailCourse({ data }) {
+  console.log(data);
 
   const cartHandler = async (id) => {
     try {
@@ -14,6 +15,7 @@ export default function CardDetailCourse({ data }) {
         {
           userID: localStorage.getItem("id"),
           courseID: id,
+          subtotal : data.price
         },
         {
           headers: {

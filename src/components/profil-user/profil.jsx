@@ -3,7 +3,6 @@ import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
 import Toolbar from "@mui/material/Toolbar";
 import Avatar from "@mui/material/Avatar";
-import { deepOrange, deepPurple } from "@mui/material/colors";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import "./style.css";
@@ -13,8 +12,12 @@ import SidebarUser from "./sidebarUser";
 const drawerWidth = 240;
 
 export default function ProfileUser() {
+  const avatar =
+    localStorage.getItem("Avatar") || "/static/images/avatar/2.jpg";
+  
+
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box sx={{ display: "flex", p: 3 }}>
       <CssBaseline />
 
       <Box
@@ -28,45 +31,39 @@ export default function ProfileUser() {
       >
         <SidebarUser />
 
-        <Box sx={{ width: "100%" }}>
-          <div>
+        <Box sx={{ width: "100%", p: 3, display : "flex", flexDirection : "column", justifyContent : "space-around" }}>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+              gap : "16px"
+            }}
+          >
             <h1>Detail Profile</h1>
             <p style={{ textAlign: "left" }}>Foto Profile</p>
-            <div style={{ display: "flex", gap: "15px", alignItems: "center" }}>
+            <div style={{ display: "flex", gap: "32px", alignItems: "center" }}>
               <Avatar
+                alt="Remy Sharp"
+                src={avatar}
                 sx={{
-                  bgcolor: deepPurple[500],
-                  width: 70,
-                  height: 70,
-                  fontSize: 30,
+                  width: "50px",
+                  height: "50px",
                 }}
-              >
-                AD
-              </Avatar>
+              />
               <div>
                 <Button variant="contained">Unggah Foto</Button>
               </div>
             </div>
-            <div>
-              <p style={{ textAlign: "left" }}>
-                Masukkan seluruh input yang diminta!
-              </p>
-            </div>
+            <div></div>
+          </Box>
 
+          <Box>
             <TextField
               sx={{ width: "50%", paddingRight: "10px" }}
               id="demo-helper-text-aligned"
-              label="Nama Depan.."
+              label="Nama Depan Anda..."
             />
-            <TextField
-              sx={{ width: "50%" }}
-              helperText=" "
-              id="demo-helper-text-aligned-no-helper"
-              label="Nama Belakang.."
-            />
-          </div>
-
-          <div>
             <p style={{ textAlign: "left" }}>Alamat Email</p>
             <TextField
               style={{ width: "100%" }}
@@ -75,7 +72,7 @@ export default function ProfileUser() {
               label="andri@gmail.com"
               variant="filled"
             />
-          </div>
+          </Box>
 
           <div style={{ textAlign: "end", paddingTop: "20px" }}>
             <Button

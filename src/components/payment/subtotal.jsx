@@ -1,28 +1,70 @@
-// @ts-nocheck
 import { Box, Button, Typography } from "@mui/material";
 import React from "react";
 import Style from "./subtotal.module.css";
+import axios from "axios";
 
 export default function Subtotal({ data }) {
   const payments = ["bca", "gopay", "mandiri", "ovo", "spay"];
 
-  const subtotal = data
+  const subtotal = data;
 
   // Initialize total variable
   let total = 0;
 
   // Iterate over the array and sum up subtotal values
   subtotal.forEach((item) => {
-    console.log(item);
     // Extract numeric value from subtotal (assuming it's always in the format "Rp.XXX.XXX")
     const subtotalValue = parseInt(
-      item.Course.price.replace("Rp", "").replace(".", ""),
+      item.subtotal.replace("Rp", "").replace(".", ""),
       10
     );
 
     // Add the numeric value to the total
     total += subtotalValue;
   });
+
+  const CheckoutHandler = () => {
+    try {
+      const token = localStorage.getItem("token");
+
+      const checkoutData = data.map((item) => ({
+        userID: localStorage.getItem("id"),
+        courseID: item.courseID,
+        enrollment_date: new Date(),
+      }));
+      axios
+        .post(`http://localhost:3000/checkout/`, checkoutData, {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((response) => {
+          // Handle success
+          axios
+          .delete(`http://localhost:3000/carts/user/${localStorage.getItem("id")}`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          })
+          .then((deleteResponse) => {
+            console.log("Carts deleted:", deleteResponse.data);
+            // Lakukan tindakan tambahan jika diperlukan setelah menghapus carts
+          })
+          .catch((deleteError) => {
+            console.error("Error deleting carts:", deleteError);
+            // Handle error saat menghapus carts
+          });
+        })
+        .catch((error) => {
+          // Handle error
+          console.error("Error:", error);
+          // You can perform additional actions here based on the error
+        });
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
   return (
     <Box
       sx={{ width: "100%", borderTop: { xs: "1px solid black", md: "none" } }}
@@ -41,7 +83,7 @@ export default function Subtotal({ data }) {
             opacity: "60%",
             fontWeight: 600,
             marginBottom: "8px",
-            textAlign : "left"
+            textAlign: "left",
           }}
         >
           Total :
@@ -61,6 +103,7 @@ export default function Subtotal({ data }) {
             fontSize: "18px",
             p: 3,
           }}
+          onClick={() => CheckoutHandler()}
         >
           Checkout
         </Button>
