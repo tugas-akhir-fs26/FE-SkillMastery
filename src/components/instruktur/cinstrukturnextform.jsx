@@ -41,7 +41,7 @@ export default function SecondForm() {
       setIsLoading(true);
 
       const response = await axios.post(
-        'http://localhost:3000/mentors/',
+        'https://skillmastery.adaptable.app//mentors/',
         {
           userID : userID,
           mentorID : mentorID,

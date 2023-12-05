@@ -11,7 +11,7 @@ export default function CardDetailCourse({ data }) {
       const token = localStorage.getItem("token"); // Assuming you stored the token with key "token"
 
       const response = await axios.post(
-        `http://localhost:3000/cart/`,
+        `https://skillmastery.adaptable.app/cart/`,
         {
           userID: localStorage.getItem("id"),
           courseID: id,

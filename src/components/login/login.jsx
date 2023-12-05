@@ -47,7 +47,7 @@ export default function Login() {
     try {
       axios({
         method: "POST",
-        url: "http://localhost:3000/auth/login",
+        url: "https://skillmastery.adaptable.app/auth/login",
         data: {
           email: values.email,
           password: values.password,

@@ -64,7 +64,7 @@ function DaftarCourse() {
 
     axios
       .get(
-        `http://localhost:3000/courses/course?search=${searchKeyword}&page=${currentPage}`
+        `https://skillmastery.adaptable.app/courses/course?search=${searchKeyword}&page=${currentPage}`
       )
       .then((response) => {
         setData(response.data.data);

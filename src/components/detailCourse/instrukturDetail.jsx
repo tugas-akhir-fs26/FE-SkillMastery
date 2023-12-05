@@ -12,7 +12,7 @@ export default function DetailInstruktur({ data }) {
         // Pastikan data dan data.Mentor tidak undefined sebelum mengakses id
         if (data && data.Mentor && data.Mentor.id) {
           const response = await axios.get(
-            `http://localhost:3000/mentors/${data.Mentor.id}`
+            `https://skillmastery.adaptable.app/mentors/${data.Mentor.id}`
           );
           setDataMentor(response.data.data[0]);
         }

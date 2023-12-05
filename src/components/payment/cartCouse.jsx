@@ -37,7 +37,7 @@ export default function CartCourse({ data }) {
       
       setTimeout(() => setDelete(false), 2000);
 
-      axios.delete(`http://localhost:3000/cart/course/${id}`, {
+      axios.delete(`https://skillmastery.adaptable.app/cart/course/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

@@ -14,7 +14,7 @@ function Payment() {
   useEffect(() => {
     try {
       axios
-        .get(`http://localhost:3000/cart/${userID}`, {
+        .get(`https://skillmastery.adaptable.app/cart/${userID}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

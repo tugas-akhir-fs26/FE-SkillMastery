@@ -15,7 +15,7 @@ function DetailCourse() {
   useEffect(() => {
     axios
       .get(
-        `http://localhost:3000/courses/${id}`
+        `https://skillmastery.adaptable.app/courses/${id}`
       )
       .then((response) => {
         setDatas(response.data.data[0])
