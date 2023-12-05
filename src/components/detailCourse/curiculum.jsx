@@ -15,10 +15,10 @@ export default function Curiculum({ data }) {
     if (data && data.Contents && data.Contents.length > 0) {
       try {
         const jsonString = data.Contents[0].section;
-        // Menghapus karakter ganda (") di awal dan akhir string
-        const trimmedJsonString = jsonString.trim().slice(1, -1);
-        const parsedSections = JSON.parse(trimmedJsonString);
-        setDatas(parsedSections)
+
+        // Parse JSON string directly without trimming
+        const parsedSections = JSON.parse(jsonString);
+        setDatas(parsedSections);
       } catch (error) {
         console.error("Error parsing JSON:", error);
       }

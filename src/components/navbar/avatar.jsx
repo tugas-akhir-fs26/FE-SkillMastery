@@ -8,7 +8,7 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Typography from "@mui/material/Typography";
 import { useDispatch, useSelector } from "react-redux";
-import { logoutAction } from "../../redux/reducers/auth.reducer.js";
+
 import {
   Button,
   Dialog,
@@ -28,7 +28,7 @@ const CustomAvatar = ({
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [open, setOpen] = React.useState(false);
-  const avatar = useSelector((state) => state.auth.avatar) || "/static/images/avatar/2.jpg";
+  const avatar = localStorage.getItem("Avatar") || "/static/images/avatar/2.jpg";
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -40,7 +40,7 @@ const CustomAvatar = ({
 
   const handleLogout = () => {
     setOpen(false);
-    dispatch(logoutAction());
+    // dispatch(logoutAction());
   };
 
   function handleMenuItemClick(setting) {
@@ -50,6 +50,8 @@ const CustomAvatar = ({
       navigate("/profile-user");
     } else if (setting === "Logout") {
       handleClickOpen();
+      localStorage.clear()
+      window.location.href('/')
     }
   }
 

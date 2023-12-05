@@ -1,9 +1,33 @@
-// @ts-nocheck
 import { Box, Button, Typography } from "@mui/material";
 import React from "react";
-import Style from './courseDetail.module.css'
+import Style from "./courseDetail.module.css";
+import axios from "axios";
 
-export default function CardDetailCourse({data}) {
+export default function CardDetailCourse({ data }) {
+  console.log(data);
+
+  const cartHandler = async (id) => {
+    try {
+      const token = localStorage.getItem("token"); // Assuming you stored the token with key "token"
+
+      const response = await axios.post(
+        `http://localhost:3000/cart/`,
+        {
+          userID: localStorage.getItem("id"),
+          courseID: id,
+          subtotal : data.price
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
   return (
     <Box
       sx={{
@@ -16,14 +40,22 @@ export default function CardDetailCourse({data}) {
       }}
     >
       <img src={data.image} alt={data.title} className={Style.img_cart} />
-      <Box sx={{display : "flex", flexDirection : "column", alignItems : "start"}}>
+      <Box
+        sx={{ display: "flex", flexDirection: "column", alignItems: "start" }}
+      >
         <Typography sx={{ fontSize: "32px", fontWeight: 600 }}>
           {data.title}
         </Typography>
-        <Typography sx={{ fontSize: "28px", fontWeight: 400, marginBottom : "16px" }}>
+        <Typography
+          sx={{ fontSize: "28px", fontWeight: 400, marginBottom: "16px" }}
+        >
           {data.price}
         </Typography>
-        <Button variant="contained" sx={{ textTransform: "capitalize" }}>
+        <Button
+          variant="contained"
+          sx={{ textTransform: "capitalize" }}
+          onClick={() => cartHandler(data.id)}
+        >
           Tambah Keranjang
         </Button>
       </Box>

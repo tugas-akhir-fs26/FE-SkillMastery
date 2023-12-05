@@ -45,7 +45,7 @@ function Register() {
 
     axios({
       method: "POST",
-      url: "https://skillmastery.adaptable.app/auth/register",
+      url: "http://localhost:3000/auth/register",
       data: {
         Name: values.name,
         email: values.email,
@@ -200,7 +200,7 @@ function Register() {
                       variant="contained"
                       onClick={handleSubmit}
                     >
-                      Masuk
+                      Daftar
                     </Button>
                   </Stack>
                   <p
