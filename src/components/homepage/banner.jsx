@@ -18,7 +18,7 @@ export default function Banner() {
         width : {xs:"300px", md : "550px"},
       }}
     >
-      <img src="../src/assets/BG.svg" className={Style.img_banner} alt="Background Image"  />
+      <img src="https://res.cloudinary.com/dzajixld0/image/upload/v1701790083/BG_rnnavg.svg" className={Style.img_banner} alt="Background Image"  />
     </Box>
   );
 }

@@ -4,7 +4,13 @@ import Style from "./subtotal.module.css";
 import axios from "axios";
 
 export default function Subtotal({ data }) {
-  const payments = ["bca", "gopay", "mandiri", "ovo", "spay"];
+  const payments = [
+    "https://res.cloudinary.com/dzajixld0/image/upload/v1701790088/bca_cwtvjj.png",
+    "https://res.cloudinary.com/dzajixld0/image/upload/v1701790088/mandiri_xlwmc9.png",
+    "https://res.cloudinary.com/dzajixld0/image/upload/v1701790088/gopay_nglpag.png",
+    "https://res.cloudinary.com/dzajixld0/image/upload/v1701790089/ovo_ki6wl1.png",
+    "https://res.cloudinary.com/dzajixld0/image/upload/v1701790089/spay_e1axe8.png",
+  ];
 
   const subtotal = data;
 
@@ -42,19 +48,24 @@ export default function Subtotal({ data }) {
         .then((response) => {
           // Handle success
           axios
-          .delete(`https://skillmastery.adaptable.app/carts/user/${localStorage.getItem("id")}`, {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          })
-          .then((deleteResponse) => {
-            console.log("Carts deleted:", deleteResponse.data);
-            // Lakukan tindakan tambahan jika diperlukan setelah menghapus carts
-          })
-          .catch((deleteError) => {
-            console.error("Error deleting carts:", deleteError);
-            // Handle error saat menghapus carts
-          });
+            .delete(
+              `https://skillmastery.adaptable.app/carts/user/${localStorage.getItem(
+                "id"
+              )}`,
+              {
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                },
+              }
+            )
+            .then((deleteResponse) => {
+              console.log("Carts deleted:", deleteResponse.data);
+              // Lakukan tindakan tambahan jika diperlukan setelah menghapus carts
+            })
+            .catch((deleteError) => {
+              console.error("Error deleting carts:", deleteError);
+              // Handle error saat menghapus carts
+            });
         })
         .catch((error) => {
           // Handle error
@@ -116,7 +127,7 @@ export default function Subtotal({ data }) {
         <Box sx={{ display: "flex", gap: "8px", marginTop: "12px" }}>
           {payments.map((payment) => (
             <img
-              src={`../src/assets/payments/${payment}.png`}
+              src={payment}
               alt={payment}
               className={`${Style.img_payments}`}
             />

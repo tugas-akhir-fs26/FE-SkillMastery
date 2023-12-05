@@ -12,7 +12,7 @@ export default function CarouselTesti() {
       name: "Muhammad Haikal Syahfarel",
       role: "Pekerja",
       imageSrc:
-      "../src/assets/testimoni/testi_1.png",
+      "https://res.cloudinary.com/dzajixld0/image/upload/v1701790070/testi_1_uomeva.png",
       content:
         "Kelas website ini sungguh luar biasa! Materi yang disampaikan sangat jelas dan mudah dipahami. Saya benar-benar merasa meningkatkan keterampilan saya dalam membuat dan mengelola website. Terima kasih!",
       rating: 5,
@@ -21,7 +21,7 @@ export default function CarouselTesti() {
       name: "Dionisius Reinaldo",
       role: "Mentor",
       imageSrc:
-        "../src/assets/testimoni/testi_2.png",
+        "https://res.cloudinary.com/dzajixld0/image/upload/v1701790069/testi_2_vopqct.png",
       content: `Saya sangat puas dengan kelas website ini. Instrukturnya sangat
       kompeten dan responsif terhadap pertanyaan. Materi yang
       diberikan sangat relevan dan praktis. Sangat direkomendasikan!`,
@@ -31,7 +31,7 @@ export default function CarouselTesti() {
       name: "Anri Daniata Purba",
       role: "Mahasiswa",
       imageSrc:
-      "../src/assets/testimoni/testi_6.png",
+      "https://res.cloudinary.com/dzajixld0/image/upload/v1701790071/testi_6_hrtioe.png",
       content: `Kelas ini sungguh luar biasa! Materi yang diajarkan sangat
       relevan dan guru memberikan penjelasan dengan sangat jelas. Saya
       merasa lebih percaya diri dalam memahami konsep-konsep yang

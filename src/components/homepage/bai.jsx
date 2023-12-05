@@ -12,7 +12,7 @@ export default function MentorSection() {
     <div className={`${Style.bai_ct}`}>
       <div className={`${Style.img_wrapper}`}>
         <div className={`${Style.circle}`}></div>
-        <img src="../src/assets/BAI.png" alt="Belajar Node" width={"300px"} />
+        <img src="https://res.cloudinary.com/dzajixld0/image/upload/v1701790083/BAI_ls4a6s.png" alt="Mentor" width={"300px"} />
       </div>
       <Box
         sx={{

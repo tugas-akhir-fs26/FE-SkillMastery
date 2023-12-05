@@ -219,7 +219,7 @@ export default function Login() {
             </form>
           </Box>
           <Box className="img-container" sx={{ width: "100%" }}>
-            <img src="../src/assets/register.svg" alt="Login Image" />
+            <img src="https://res.cloudinary.com/dzajixld0/image/upload/v1701790083/register_jknc9k.svg" alt="Login Image" />
           </Box>
         </div>
       </Box>
