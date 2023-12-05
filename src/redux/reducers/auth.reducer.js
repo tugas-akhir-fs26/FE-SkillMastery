@@ -9,8 +9,10 @@ const initialState = {
   export const authReducer = (state = initialState, action) => {
     switch (action.type) {
       case "LOGIN":
+        localStorage.setItem("isLogin", true);
         return { ...state, isLogin: true };
       case "LOGOUT":
+        localStorage.removeItem("isLogin");
         return { ...state, isLogin: false };
       case "Avatar" :
         return {...state, avatar : action.payload}

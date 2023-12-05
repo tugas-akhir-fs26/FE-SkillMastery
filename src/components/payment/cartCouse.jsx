@@ -3,7 +3,7 @@ import { Avatar, Box, Typography } from "@mui/material";
 import React from "react";
 import Style from "./cartCourse.module.css";
 
-export default function CartCourse() {
+export default function CartCourse({data}) {
   return (
     <Box
       sx={{
@@ -18,7 +18,7 @@ export default function CartCourse() {
       }}
     >
       <img
-        src="../src/assets/courses/web.jpg"
+        src={data?.Course.image}
         alt="web"
         className={`${Style.img_cart}`}
       />
@@ -26,10 +26,10 @@ export default function CartCourse() {
         <Typography
           sx={{
             fontWeight: 600,
-            fontSize: { xs: "20px", md: "24px" },
+            fontSize: { xs: "20px", md: "24px", textAlign : "left" },
           }}
         >
-          Belajar NodeJS
+          {data?.Course.title}
         </Typography>
         <Typography
           sx={{
@@ -39,7 +39,7 @@ export default function CartCourse() {
             marginBottom: "16px",
           }}
         >
-          Pelajari Cara membuat web server dan restful api dengan nodejs
+          {data?.Course.short_desc}
         </Typography>
         <Box
           sx={{
@@ -74,7 +74,7 @@ export default function CartCourse() {
             marginTop: { xs: "18px", md: 0 },
           }}
         >
-          Rp99.0000
+          {data?.Course.price}
         </Typography>
       </Box>
     </Box>

@@ -66,10 +66,16 @@ export default function Login() {
             setSuccess(false);
           }, 2000);
           // Simpan token di localStorage
-          localStorage.setItem("token", response.data.token);
-          dispatch(loginAction());
-          dispatch(setAvatarAction(response.data.Avatar));
-          navigate('/')
+          if(response.data.ok === true) {
+            window.localStorage.setItem("token", response.data.token);
+            window.localStorage.setItem("id", response.data.userId);
+            window.localStorage.setItem("Avatar", response.data.Avatar);
+            window.localStorage.setItem("isLogin", true);
+            dispatch(loginAction());
+            dispatch(setAvatarAction(response.data.Avatar));
+            navigate('/')
+            return
+          }
         })
         .catch(function (error) {
           setSuccess(true);

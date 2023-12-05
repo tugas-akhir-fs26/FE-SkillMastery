@@ -11,8 +11,11 @@ import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import CustomAvatar from "./avatar";
 import Logo from "./button-logo";
+import { styled } from '@mui/material/styles';
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { Badge } from "@mui/material";
 const pages = ["course", "workshop", "instruktur"];
 const settings = ["Profile", "Logout"];
 
@@ -23,7 +26,7 @@ function Navbar() {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const dispatch = useDispatch();
-  const isLogin = useSelector((state) => state.auth.isLogin);
+  const isLogin = localStorage.getItem('isLogin')
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -39,6 +42,15 @@ function Navbar() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+  const StyledBadge = styled(Badge)(({ theme }) => ({
+    "& .MuiBadge-badge": {
+      right: -3,
+      top: 13,
+      border: `2px solid ${theme.palette.background.paper}`,
+      padding: "0 4px",
+    },
+  }));
 
   return (
     <AppBar
@@ -143,12 +155,19 @@ function Navbar() {
             </Box>
 
             {isLogin ? (
-              <CustomAvatar
-                handleOpenUserMenu={handleOpenUserMenu}
-                anchorElUser={anchorElUser}
-                handleCloseUserMenu={handleCloseUserMenu}
-                settings={settings}
-              />
+              <Box sx={{ display: "flex", alignItems: "center", gap: "32px" }}>
+                <IconButton aria-label="cart" onClick={()=> (navigate('/payment'))}>
+                  <StyledBadge badgeContent={4} color="secondary">
+                    <ShoppingCartIcon sx={{height : 40, width : 30}}/>
+                  </StyledBadge>
+                </IconButton>
+                <CustomAvatar
+                  handleOpenUserMenu={handleOpenUserMenu}
+                  anchorElUser={anchorElUser}
+                  handleCloseUserMenu={handleCloseUserMenu}
+                  settings={settings}
+                />
+              </Box>
             ) : (
               <Box
                 sx={{
