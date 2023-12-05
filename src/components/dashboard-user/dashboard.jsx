@@ -15,7 +15,7 @@ export default function CourseUser() {
   React.useEffect(() => {
     const id = localStorage.getItem("id");
     axios
-      .get(`http://localhost:3000/checkout/user/${id}`, {
+      .get(`https://skillmastery.adaptable.app/checkout/user/${id}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

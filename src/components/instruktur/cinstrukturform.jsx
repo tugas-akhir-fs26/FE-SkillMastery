@@ -30,7 +30,7 @@ export default function InstrukturForm() {
 
       // Make the POST request
       const response = await axios.post(
-        `http://localhost:3000/mentors/${id}`,
+        `https://skillmastery.adaptable.app/mentors/${id}`,
         null,
         {
           headers: {

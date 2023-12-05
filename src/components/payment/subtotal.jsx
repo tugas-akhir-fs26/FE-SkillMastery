@@ -33,7 +33,7 @@ export default function Subtotal({ data }) {
         enrollment_date: new Date(),
       }));
       axios
-        .post(`http://localhost:3000/checkout/`, checkoutData, {
+        .post(`https://skillmastery.adaptable.app/checkout/`, checkoutData, {
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
@@ -42,7 +42,7 @@ export default function Subtotal({ data }) {
         .then((response) => {
           // Handle success
           axios
-          .delete(`http://localhost:3000/carts/user/${localStorage.getItem("id")}`, {
+          .delete(`https://skillmastery.adaptable.app/carts/user/${localStorage.getItem("id")}`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
