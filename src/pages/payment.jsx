@@ -9,13 +9,19 @@ import axios from "axios";
 
 function Payment() {
   const [data, setData] = useState([]);
-  const userID = localStorage.getItem("id")
+  const userID = localStorage.getItem("id");
+  const token = localStorage.getItem("token");
   useEffect(() => {
     try {
       axios
-        .get(`http://localhost:3000/cart/${userID}`)
+        .get(`http://localhost:3000/cart/${userID}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
         .then((response) => {
           setData(response.data.data);
+          console.log(response.data.data);
         })
         .catch((error) => {
           console.error("Error fetching data:", error);
@@ -36,20 +42,28 @@ function Payment() {
                 Shopping Cart
               </Typography>
 
-              <Typography sx={{ fontWeight: 300, fontSize: "18px", p: 1, textAlign : "left" }}>
-                {data.length} Course in cart
+              <Typography
+                sx={{
+                  fontWeight: 300,
+                  fontSize: "18px",
+                  p: 1,
+                  textAlign: "left",
+                }}
+              >
+                {data?.length} Course in cart
               </Typography>
 
               {/* render list cart course */}
-              {data.map((course) => (
-                <CartCourse key={course?.id} data={course} />
-              ))}
+              {data &&
+                data.map((course) => (
+                  <CartCourse key={course?.id} data={course} />
+                ))}
             </Box>
           </Grid>
           <Grid item xs={12} md={4}>
             <Box sx={{ p: 2, height: "50vh", marginTop: "48px" }}>
               {/* render subtotal */}
-              <Subtotal />
+              <Subtotal data={data} />
             </Box>
           </Grid>
         </Grid>

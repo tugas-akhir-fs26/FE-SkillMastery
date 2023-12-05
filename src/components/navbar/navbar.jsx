@@ -11,7 +11,6 @@ import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import CustomAvatar from "./avatar";
 import Logo from "./button-logo";
-import { styled } from '@mui/material/styles';
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -43,14 +42,6 @@ function Navbar() {
     setAnchorElUser(null);
   };
 
-  const StyledBadge = styled(Badge)(({ theme }) => ({
-    "& .MuiBadge-badge": {
-      right: -3,
-      top: 13,
-      border: `2px solid ${theme.palette.background.paper}`,
-      padding: "0 4px",
-    },
-  }));
 
   return (
     <AppBar
@@ -157,9 +148,7 @@ function Navbar() {
             {isLogin ? (
               <Box sx={{ display: "flex", alignItems: "center", gap: "32px" }}>
                 <IconButton aria-label="cart" onClick={()=> (navigate('/payment'))}>
-                  <StyledBadge badgeContent={4} color="secondary">
                     <ShoppingCartIcon sx={{height : 40, width : 30}}/>
-                  </StyledBadge>
                 </IconButton>
                 <CustomAvatar
                   handleOpenUserMenu={handleOpenUserMenu}
