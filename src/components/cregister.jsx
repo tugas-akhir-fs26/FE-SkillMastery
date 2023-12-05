@@ -200,7 +200,7 @@ function Register() {
                       variant="contained"
                       onClick={handleSubmit}
                     >
-                      Masuk
+                      Daftar
                     </Button>
                   </Stack>
                   <p
